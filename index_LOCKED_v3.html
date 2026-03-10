@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PRIMARY SEO -->
+<title>Tirth Bhatt | BI & Data Engineer — Power BI, Azure, SQL, Python | New Jersey</title>
+<meta name="description" content="Tirth Bhatt is a BI & Data Engineer in New Jersey with 4+ years of experience in Power BI, Azure Data Factory, T-SQL, Python, and CRM integration. Microsoft Certified: Azure Data Engineer & Power BI Data Analyst.">
+<meta name="keywords" content="Tirth Bhatt, BI Engineer, Data Engineer, Power BI Developer, Azure Data Engineer, SQL Developer, Business Intelligence Analyst, New Jersey Data Engineer, DAX Developer, ETL Pipeline Engineer, CRM Integration, Data Compliance, KPI Dashboard, Microsoft Certified Power BI">
+<meta name="author" content="Tirth Bhatt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tirthmagnus.github.io/">
+
+<!-- OPEN GRAPH (LinkedIn, Slack, Facebook previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tirthmagnus.github.io/">
+<meta property="og:title" content="Tirth Bhatt | BI & Data Engineer — Power BI, Azure, SQL">
+<meta property="og:description" content="4+ years building scalable BI systems, ETL pipelines, and data compliance frameworks across finance, healthcare, and operations. Microsoft Certified.">
+<meta property="og:site_name" content="Tirth Bhatt Portfolio">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tirth Bhatt | BI & Data Engineer">
+<meta name="twitter:description" content="Power BI · Azure · SQL · Python. 4+ years of data engineering. Microsoft Certified.">
+
+<!-- JSON-LD STRUCTURED DATA for Google rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tirth Bhatt",
+  "jobTitle": "BI & Data Engineer",
+  "description": "Business Intelligence and Data Engineer with 4+ years of experience in Power BI, Azure, SQL, and Python. Specializing in KPI dashboards, ETL pipelines, CRM integration, and data compliance.",
+  "url": "https://tirthmagnus.github.io/",
+  "email": "tirthbhatt9@gmail.com",
+  "telephone": "+19178016151",
+  "address": {"@type":"PostalAddress","addressLocality":"New Jersey","addressCountry":"US"},
+  "sameAs": ["https://www.linkedin.com/in/tirthrajbhatt","https://github.com/tirthmagnus"],
+  "knowsAbout": ["Power BI","DAX","Azure Data Factory","T-SQL","Python","ETL","Business Intelligence","Data Engineering","CRM Integration","Data Compliance","Tableau","KPI Design"],
+  "alumniOf": [
+    {"@type":"CollegeOrUniversity","name":"Pace University","address":"New York, USA"},
+    {"@type":"CollegeOrUniversity","name":"Pacific University","address":"Udaipur, India"}
+  ],
+  "hasCredential": [
+    {"@type":"EducationalOccupationalCredential","name":"Microsoft Certified: Azure Data Engineer Associate"},
+    {"@type":"EducationalOccupationalCredential","name":"Microsoft Certified: Power BI Data Analyst Associate"}
+  ]
+}
+
+/* SMOOTH SECTION INDICATOR */
+const allSections=document.querySelectorAll('section[id]');
+const allNavLinks=document.querySelectorAll('.nav-links a');
+const scrollSpy=()=>{
+  let cur='';
+  allSections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});
+  allNavLinks.forEach(a=>{ a.style.color=a.getAttribute('href')==='#'+cur?'var(--amber)':''; });
+};
+window.addEventListener('scroll',scrollSpy);
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0c;
+  --bg2:#111111;
+  --bg3:#171717;
+  --amber:#f59e0b;
+  --amber2:#fbbf24;
+  --amber-glow:rgba(245,158,11,0.15);
+  --white:#f5f5f0;
+  --gray:#888880;
+  --gray2:#444440;
+  --border:rgba(245,158,11,0.12);
+  --border2:rgba(255,255,255,0.06);
+  --font-display:'Bebas Neue',cursive;
+  --font-body:'Outfit',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════ */
+#cur{position:fixed;z-index:9999;pointer-events:none;top:0;left:0;opacity:0;transition:opacity .3s}
+#cur.active{opacity:1}
+#cur-dot{width:10px;height:10px;background:var(--amber);border-radius:50%;position:fixed;transform:translate(-50%,-50%);box-shadow:0 0 10px rgba(245,158,11,.8),0 0 20px rgba(245,158,11,.3);z-index:10000;pointer-events:none}
+#cur-circle{width:36px;height:36px;border:1.5px solid rgba(245,158,11,0.5);border-radius:50%;position:fixed;transform:translate(-50%,-50%);transition:width .25s ease,height .25s ease,border-color .25s ease;z-index:9999;pointer-events:none}
+#cur-text{display:none}
+body.hov #cur-circle{width:56px;height:56px;border-color:rgba(245,158,11,0.9);border-width:2px}
+
+/* ═══════════════════════════════════════
+   PARTICLES CANVAS
+═══════════════════════════════════════ */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+
+/* ═══════════════════════════════════════
+   GRID OVERLAY
+═══════════════════════════════════════ */
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(245,158,11,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.025) 1px,transparent 1px);
+  background-size:80px 80px}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:24px 64px;background:rgba(12,12,12,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2)}
+.nav-logo{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.06em;color:var(--white);text-decoration:none}
+.nav-logo span{color:var(--amber)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .25s;font-family:var(--font-mono)}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{padding:9px 22px;background:var(--amber);color:#000;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-family:var(--font-mono);transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--amber2);transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero{min-height:100vh;display:flex;align-items:center;padding:140px 64px 80px;position:relative;overflow:hidden}
+.hero-bg-text{position:absolute;bottom:-60px;left:-20px;font-family:var(--font-display);font-size:28vw;color:transparent;-webkit-text-stroke:1px rgba(245,158,11,.04);line-height:1;pointer-events:none;user-select:none;z-index:0}
+.hero-inner{position:relative;z-index:1;max-width:1100px;width:100%}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:.72rem;color:var(--amber);letter-spacing:.18em;text-transform:uppercase;margin-bottom:28px}
+.hero-eyebrow::before{display:none}
+.hero-name{font-family:var(--font-display);font-size:clamp(5rem,12vw,10rem);line-height:.9;letter-spacing:.02em;margin-bottom:4px;position:relative}
+.hero-name .first{display:block}
+.hero-name .last{display:block;color:transparent;-webkit-text-stroke:1.5px var(--white);position:relative}
+.hero-name .last::after{content:'BHATT';position:absolute;left:2px;top:2px;color:var(--amber);-webkit-text-stroke:0;opacity:.15;z-index:-1}
+.hero-role{font-size:clamp(1rem,2vw,1.3rem);font-weight:300;color:var(--gray);margin-bottom:40px;letter-spacing:.04em}
+.hero-role strong{color:var(--white);font-weight:600}
+.hero-summary{max-width:520px;font-size:1.02rem;line-height:1.75;color:rgba(245,245,240,.65);margin-bottom:52px;font-weight:300}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-amber{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--amber);color:#000;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-amber:hover{background:var(--amber2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,158,11,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:transparent;color:var(--white);font-family:var(--font-mono);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border2);border-radius:4px;transition:border-color .2s,color .2s,transform .2s}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+
+/* floating stats */
+.hero-stats{position:absolute;right:64px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:32px;z-index:1}
+.hero-stat{text-align:right;position:relative}
+.hero-stat-line{position:absolute;right:calc(100% + 12px);top:50%;width:0;height:1px;background:var(--amber);transition:width .6s ease}
+.hero-stat.visible .hero-stat-line{width:40px}
+.h-stat-num{font-family:var(--font-display);font-size:3rem;color:var(--white);line-height:1}
+.h-stat-num sup{font-family:var(--font-mono);font-size:.9rem;color:var(--amber);vertical-align:super}
+.h-stat-label{font-family:var(--font-mono);font-size:.62rem;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+
+/* hero scroll indicator */
+.scroll-indicator{position:absolute;bottom:40px;left:64px;display:flex;align-items:center;gap:12px;color:var(--gray);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.scroll-wheel{width:20px;height:32px;border:1px solid var(--gray2);border-radius:12px;position:relative}
+.scroll-wheel::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:var(--amber);border-radius:2px;animation:scrollWheel 1.8s infinite}
+@keyframes scrollWheel{0%{top:6px;opacity:1}100%{top:18px;opacity:0}}
+
+/* ═══════════════════════════════════════
+   TICKER
+═══════════════════════════════════════ */
+.ticker{overflow:hidden;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);background:var(--bg2);padding:0}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 35s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:24px;padding:14px 40px;border-right:1px solid var(--border2)}
+.ticker-item span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray)}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--amber);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════ */
+.section{padding:120px 64px;position:relative;z-index:1}
+.section-alt{background:var(--bg2)}
+.sec-eyebrow{font-family:var(--font-mono);font-size:.68rem;color:var(--amber);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-eyebrow::before{display:none}
+.sec-title{font-family:var(--font-display);font-size:clamp(3rem,5vw,5rem);line-height:.95;letter-spacing:.03em;margin-bottom:70px}
+.sec-title span{color:var(--amber)}
+
+/* ═══════════════════════════════════════
+   ABOUT + SKILLS
+═══════════════════════════════════════ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-p{font-size:1.05rem;line-height:1.85;color:rgba(245,245,240,.68);margin-bottom:22px;font-weight:300}
+.about-p strong{color:var(--white);font-weight:600}
+.contact-row{display:flex;flex-direction:column;gap:10px;margin-top:32px}
+.c-item{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.78rem;color:var(--gray)}
+.c-icon{width:34px;height:34px;border:1px solid var(--border2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;color:var(--amber);background:var(--bg3)}
+.c-item a{color:var(--gray);text-decoration:none;transition:color .2s}
+.c-item a:hover{color:var(--amber)}
+.c-item span{color:var(--gray)}
+
+/* skills */
+.skill-categories{display:flex;flex-direction:column;gap:28px}
+.skill-cat-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;border-left:2px solid var(--amber);padding-left:10px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;font-family:var(--font-mono);font-size:.7rem;color:var(--gray);transition:all .25s;cursor:default}
+.pill:hover{border-color:var(--amber);color:var(--amber);background:rgba(245,158,11,.06);transform:translateY(-2px)}
+.pill img,.pill svg{width:14px;height:14px;object-fit:contain;filter:grayscale(1) brightness(1.5);transition:filter .25s}
+.pill:hover img,.pill:hover svg{filter:none}
+
+/* ═══════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════ */
+#experience{background:var(--bg)}
+.timeline-outer{position:relative}
+.tl-line{position:absolute;left:0;top:0;width:2px;background:linear-gradient(to bottom,var(--amber),rgba(245,158,11,.3));height:0;will-change:height}
+.tl-entries{padding-left:48px;display:flex;flex-direction:column;gap:0}
+.tl-entry{position:relative;padding-bottom:64px;transition:opacity .6s ease,transform .6s ease}
+.tl-entry.js-hidden{opacity:0;transform:translateY(30px)}
+.tl-entry.reveal{opacity:1!important;transform:translateY(0)!important}
+.tl-dot{position:absolute;left:-54px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--amber);transition:border-color .4s,box-shadow .4s;box-shadow:0 0 0 4px rgba(245,158,11,.12)}
+.tl-entry.current .tl-dot{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,158,11,.2),0 0 20px rgba(245,158,11,.3);animation:dotPulse 2.5s infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px rgba(245,158,11,.2),0 0 20px rgba(245,158,11,.3)}50%{box-shadow:0 0 0 8px rgba(245,158,11,.1),0 0 32px rgba(245,158,11,.2)}}
+.tl-date-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.65rem;color:var(--gray);letter-spacing:.12em;margin-bottom:10px}
+.tl-badge-pill{padding:2px 10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:100px;color:var(--amber);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.tl-badge-pill.live{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#4ade80;animation:livePulse 2s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.6}}
+.tl-company{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.04em;margin-bottom:4px;line-height:1}
+.tl-role{font-size:.9rem;font-weight:600;color:var(--amber);margin-bottom:4px;letter-spacing:.02em}
+.tl-domain{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);margin-bottom:20px}
+
+.impact-chips{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.impact-chip{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);border-radius:6px;padding:10px 16px;min-width:80px}
+.ic-val{font-family:var(--font-display);font-size:1.6rem;color:var(--amber);line-height:1}
+.ic-lbl{font-family:var(--font-mono);font-size:.55rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+
+.tl-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:24px 28px;transition:border-color .3s,transform .3s,box-shadow .3s}
+.tl-entry.reveal .tl-card:hover{border-color:rgba(245,158,11,.25);transform:translateX(6px);box-shadow:0 0 40px rgba(0,0,0,.4)}
+.tl-bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tl-bullets li{font-size:.9rem;color:rgba(245,245,240,.65);line-height:1.65;padding-left:18px;position:relative;font-weight:300}
+.tl-bullets li::before{content:'•';position:absolute;left:0;color:var(--amber);font-size:1rem;top:0;line-height:1.65}
+.tl-stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.tl-pill{padding:3px 10px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:3px;font-family:var(--font-mono);font-size:.65rem;color:var(--gray)}
+
+
+/* Full-card clickable overlay */
+.proj-card{position:relative}
+.card-overlay-link{position:absolute;inset:0;z-index:2;border-radius:10px}
+.card-overlay-link:focus{outline:2px solid var(--amber);outline-offset:2px}
+/* Make sure inner content sits above overlay */
+.proj-num,.proj-icon-wrap,.proj-title,.proj-desc,.proj-tech-row{position:relative;z-index:3}
+.proj-link{position:relative;z-index:4}
+
+/* ═══════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════ */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj-card{text-decoration:none;color:inherit;display:block;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:28px;position:relative;overflow:hidden;transition:box-shadow .3s,border-color .3s,opacity .5s ease,transform .5s ease;}
+.proj-card.js-hidden{opacity:0;transform:translateY(30px)}
+.proj-card.reveal{opacity:1!important;transform:translateY(0)!important}
+.proj-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(245,158,11,.09) 0%,transparent 65%);opacity:0;transition:opacity .4s}
+.proj-card:hover::after{opacity:1}
+.proj-card:hover{border-color:rgba(245,158,11,.28);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.proj-num{font-family:var(--font-display);font-size:4rem;color:rgba(245,158,11,.08);position:absolute;top:12px;right:20px;line-height:1;pointer-events:none}
+.proj-icon-wrap{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.5rem;border:1px solid var(--border2)}
+.proj-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;margin-bottom:10px;line-height:1.1}
+.proj-desc{font-size:.85rem;color:rgba(245,245,240,.55);line-height:1.65;margin-bottom:18px;font-weight:300}
+.proj-tech-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.pt{font-family:var(--font-mono);font-size:.62rem;padding:3px 8px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.15);border-radius:3px;color:rgba(245,158,11,.8)}
+.proj-link{font-family:var(--font-mono);font-size:.7rem;color:var(--amber);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.proj-link:hover{gap:10px}
+
+/* ═══════════════════════════════════════
+   CERTIFICATIONS
+═══════════════════════════════════════ */
+#certifications{background:var(--bg)}
+.certs-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cert-card{position:relative;border:1px solid var(--border2);border-radius:12px;padding:36px;display:flex;align-items:flex-start;gap:24px;overflow:hidden;text-decoration:none;transition:border-color .3s,transform .3s,box-shadow .3s,opacity .5s ease;background:var(--bg3)}
+.cert-card.js-hidden{opacity:0;transform:translateY(20px)}
+.cert-card.reveal{opacity:1!important;transform:translateY(0)!important}
+.cert-card:hover{border-color:rgba(245,158,11,.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.cert-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,158,11,.06) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.cert-card:hover::before{opacity:1}
+.cert-logo{width:72px;height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.cert-logo svg{width:72px;height:72px}
+.cert-body{}
+.cert-issuer{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.cert-name{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.03em;color:var(--white);line-height:1.15;margin-bottom:12px}
+.cert-desc{font-size:.82rem;color:var(--gray);line-height:1.6;font-weight:300;margin-bottom:16px}
+.cert-view{font-family:var(--font-mono);font-size:.65rem;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.cert-card:hover .cert-view{gap:10px}
+
+/* Tech logos in certs */
+.cert-tech-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.ctp{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:3px;font-family:var(--font-mono);font-size:.62rem;color:var(--gray)}
+.ctp img{width:12px;height:12px;object-fit:contain;filter:grayscale(1) brightness(2)}
+
+/* ═══════════════════════════════════════
+   TECH LOGOS GRID
+═══════════════════════════════════════ */
+#tech{background:var(--bg2)}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px}
+.tech-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:28px 16px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;transition:all .4s ease;cursor:default;min-height:110px}
+.tech-item.js-hidden{opacity:0;transform:scale(.9) translateY(10px)}
+.tech-item.reveal{opacity:1!important;transform:scale(1) translateY(0)!important}
+.tech-item:hover{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.04);transform:translateY(-4px) scale(1.03);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.tech-item:hover .tech-logo-img{filter:none;transform:scale(1.1)}
+.tech-logo-img{width:40px;height:40px;object-fit:contain;filter:grayscale(1) brightness(1.6);transition:filter .3s,transform .3s}
+.tech-name{font-family:var(--font-mono);font-size:.6rem;color:var(--gray);letter-spacing:.1em;text-align:center;text-transform:uppercase;transition:color .3s}
+.tech-item:hover .tech-name{color:var(--amber)}
+
+/* SVG tech logos inline */
+.tech-svg{width:40px;height:40px;transition:filter .3s,transform .3s;filter:grayscale(1) brightness(1.5)}
+.tech-item:hover .tech-svg{filter:none;transform:scale(1.1)}
+
+/* ═══════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════ */
+#education{background:var(--bg2)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.edu-card{background:var(--bg3);border:1px solid var(--border2);border-radius:12px;padding:40px;position:relative;overflow:hidden;transition:opacity .6s,transform .6s,border-color .3s;display:flex;flex-direction:column;min-height:220px}
+.edu-card.js-hidden{opacity:0;transform:translateY(20px)}
+.edu-card.reveal{opacity:1!important;transform:translateY(0)!important}
+.edu-card:hover{border-color:rgba(245,158,11,.3);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.edu-card::before{content:'';position:absolute;bottom:-30px;right:-30px;width:120px;height:120px;border:1px solid rgba(245,158,11,.06);border-radius:50%}
+.edu-card::after{content:'';position:absolute;bottom:-60px;right:-60px;width:180px;height:180px;border:1px solid rgba(245,158,11,.04);border-radius:50%}
+.edu-icon{width:52px;height:52px;border:1px solid var(--border2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;background:rgba(245,158,11,.05);flex-shrink:0}
+.edu-uni{font-family:var(--font-display);font-size:1.9rem;letter-spacing:.03em;margin-bottom:8px;line-height:1;color:var(--white)}
+.edu-deg{font-size:.95rem;font-weight:600;color:var(--amber);margin-bottom:8px;letter-spacing:.01em}
+.edu-meta{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);margin-top:auto}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{background:var(--bg2);border-top:1px solid var(--border2);padding:64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px}
+.f-brand{font-family:var(--font-display);font-size:2rem;letter-spacing:.06em}
+.f-brand span{color:var(--amber)}
+.f-links{display:flex;gap:28px}
+.f-links a{font-family:var(--font-mono);font-size:.72rem;color:var(--gray);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.f-links a:hover{color:var(--amber)}
+.f-copy{font-family:var(--font-mono);font-size:.65rem;color:var(--gray2)}
+
+/* ═══════════════════════════════════════
+   UTILITIES & ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.anim-1{animation:fadeUp .9s .1s both}
+.anim-2{animation:fadeUp .9s .2s both}
+.anim-3{animation:fadeUp .9s .3s both}
+.anim-4{animation:fadeUp .9s .4s both}
+.anim-5{animation:fadeUp .9s .5s both}
+
+/* Floating amber line decoration */
+.deco-line{position:absolute;right:0;top:50%;width:1px;height:200px;background:linear-gradient(to bottom,transparent,var(--amber),transparent);transform:translateY(-50%);opacity:.12}
+
+@media(max-width:1024px){
+  nav,#hero,.section,footer{padding-left:32px;padding-right:32px}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .tech-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-stats{display:none}
+}
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links,.nav-cta{display:none}
+  #hero,.section,footer{padding-left:24px;padding-right:24px}
+  .hero-name{font-size:clamp(3.5rem,14vw,6rem)}
+  .about-grid,.certs-row,.edu-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+}
+/* ═══════════════════════════════════════
+   PROJECT MODAL SYSTEM
+═══════════════════════════════════════ */
+
+/* Hide custom cursor inside open modals */
+.proj-modal-overlay.open ~ * #cur,
+body.modal-open #cur-dot { opacity: 0 }
+.proj-modal { cursor: auto }
+.proj-modal * { cursor: auto }
+.pm-close { cursor: pointer !important }
+.pm-github-btn { cursor: pointer !important }
+
+.proj-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:24px}
+.proj-modal-overlay.open{opacity:1;pointer-events:all}
+.proj-modal{background:#111;border:1px solid rgba(245,158,11,.18);border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(28px) scale(.97);transition:transform .35s ease;scrollbar-width:thin;scrollbar-color:rgba(245,158,11,.3) transparent}
+.proj-modal-overlay.open .proj-modal{transform:translateY(0) scale(1)}
+.proj-modal::-webkit-scrollbar{width:4px}
+.proj-modal::-webkit-scrollbar-track{background:transparent}
+.proj-modal::-webkit-scrollbar-thumb{background:rgba(245,158,11,.3);border-radius:4px}
+
+/* Modal header */
+.pm-header{padding:36px 40px 0;position:relative}
+.pm-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:transparent;color:rgba(255,255,255,.5);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:monospace}
+.pm-close:hover{border-color:var(--amber);color:var(--amber);transform:rotate(90deg)}
+.pm-eyebrow{font-family:var(--font-mono);font-size:.65rem;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.pm-title{font-family:var(--font-display);font-size:2.8rem;letter-spacing:.03em;line-height:1;margin-bottom:12px;color:var(--white)}
+.pm-desc{font-size:.95rem;line-height:1.8;color:rgba(245,245,240,.65);max-width:680px;margin-bottom:20px;font-weight:300}
+.pm-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:0}
+.pm-tag{font-family:var(--font-mono);font-size:.62rem;padding:4px 10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:3px;color:rgba(245,158,11,.85)}
+
+/* Divider */
+.pm-divider{height:1px;background:linear-gradient(to right,transparent,rgba(245,158,11,.15),transparent);margin:28px 0}
+
+/* Architecture diagram */
+.pm-section-label{font-family:var(--font-mono);font-size:.62rem;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;padding:0 40px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.pm-section-label::after{content:'';flex:1;height:1px;background:rgba(245,158,11,.12)}
+
+.pm-diagram{padding:0 40px;margin-bottom:8px}
+.arch-diagram{background:#0a0a0a;border:1px solid rgba(245,158,11,.1);border-radius:12px;padding:32px;overflow-x:auto}
+
+/* Schema box styles */
+.arch-flow{display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:max-content}
+.arch-node{background:#171717;border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:14px 18px;min-width:120px;text-align:center;position:relative;flex-shrink:0}
+.arch-node.highlight{border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.06)}
+.arch-node.cloud{border-color:rgba(0,137,214,.4);background:rgba(0,137,214,.06)}
+.arch-node.ml{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.05)}
+.arch-node.alert{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.05)}
+.arch-node.bi{border-color:rgba(242,200,17,.4);background:rgba(242,200,17,.05)}
+.arch-node-icon{font-size:1.3rem;margin-bottom:6px;display:block}
+.arch-node-label{font-family:var(--font-mono);font-size:.62rem;color:var(--white);letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+.arch-node-sub{font-family:var(--font-mono);font-size:.55rem;color:var(--gray);margin-top:3px;line-height:1.3}
+.arch-arrow{display:flex;align-items:center;padding:0 6px;color:rgba(245,158,11,.5);font-size:1rem;flex-shrink:0}
+.arch-arrow-label{font-family:var(--font-mono);font-size:.5rem;color:var(--gray);text-align:center;margin-top:3px}
+.arch-arrow-wrap{display:flex;flex-direction:column;align-items:center;padding:0 6px;flex-shrink:0}
+
+/* Multi-row diagram */
+.arch-rows{display:flex;flex-direction:column;gap:16px}
+.arch-row{display:flex;align-items:center;gap:0}
+.arch-layer{margin-bottom:6px}
+.arch-layer-label{font-family:var(--font-mono);font-size:.55rem;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;padding-left:4px;border-left:2px solid rgba(245,158,11,.3);padding-left:8px}
+.arch-nodes-row{display:flex;align-items:center;gap:0;flex-wrap:nowrap}
+
+/* Graph diagram for Neo4j */
+.graph-diagram{position:relative;width:100%;height:260px;background:#0a0a0a;border-radius:10px;overflow:hidden}
+.graph-diagram svg{width:100%;height:100%}
+
+/* Code snippet */
+.pm-code-wrap{padding:0 40px;margin-bottom:8px}
+.pm-code-block{background:#0a0a0a;border:1px solid rgba(245,158,11,.1);border-radius:10px;overflow:hidden}
+.pm-code-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(245,158,11,.08);background:#0d0d0d}
+.pm-code-lang{font-family:var(--font-mono);font-size:.62rem;color:var(--amber);letter-spacing:.1em;text-transform:uppercase}
+.pm-code-dots{display:flex;gap:6px}
+.pm-code-dot{width:10px;height:10px;border-radius:50%}
+.pm-code-pre{margin:0;padding:22px 20px;overflow-x:auto;font-family:var(--font-mono);font-size:.78rem;line-height:1.7;color:#e2e8f0}
+.pm-code-pre::-webkit-scrollbar{height:3px}
+.pm-code-pre::-webkit-scrollbar-thumb{background:rgba(245,158,11,.3);border-radius:2px}
+/* Syntax highlight classes */
+.tok-kw{color:#f59e0b}
+.tok-fn{color:#60a5fa}
+.tok-str{color:#4ade80}
+.tok-cm{color:#475569;font-style:italic}
+.tok-num{color:#f472b6}
+.tok-cl{color:#a78bfa}
+.tok-op{color:#94a3b8}
+
+/* Modal footer */
+.pm-footer{padding:28px 40px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.pm-github-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:var(--amber);color:#000;font-family:var(--font-mono);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:background .2s,transform .2s,box-shadow .2s}
+.pm-github-btn:hover{background:var(--amber2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,158,11,.3)}
+.pm-github-btn svg{width:16px;height:16px;fill:currentColor}
+.pm-impact{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);letter-spacing:.08em}
+.pm-impact strong{color:var(--amber)}
+
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur">
+  <div id="cur-dot"></div>
+  <div id="cur-circle"></div>
+  <div id="cur-text">VIEW</div>
+</div>
+
+<!-- BACKGROUND -->
+<div class="grid-bg"></div>
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">TB<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tech">Stack</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+  </ul>
+  <a href="/cdn-cgi/l/email-protection#07736e75736f656f6673733e47606a666e6b2964686a" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">DATA</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow anim-1">BI &amp; Data Engineer · New Jersey, USA</div>
+    <h1 class="hero-name">
+      <span class="first anim-2">TIRTH</span>
+      <span class="last anim-3">BHATT</span>
+    </h1>
+    <p class="hero-role anim-3"><strong>Power BI · Azure · SQL · Python</strong> &nbsp;·&nbsp; 4+ Years Building Data Systems That Matter</p>
+    <p class="hero-summary anim-4">Turning raw data into strategic decisions. From fraud-detection engines to CRM pipelines, I architect BI infrastructure that eliminates noise and amplifies insight — across finance, healthcare, and operations.</p>
+    <div class="hero-actions anim-5">
+      <a href="#experience" class="btn-amber">Explore My Work ↓</a>
+      <a href="https://www.linkedin.com/in/tirthrajbhatt" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      <a href="https://github.com/tirthmagnus" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-line"></div>
+      <div class="h-stat-num">4<sup>+</sup></div>
+      <div class="h-stat-label">Years Exp</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-line"></div>
+      <div class="h-stat-num">$138K</div>
+      <div class="h-stat-label">Fraud Prevented</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-line"></div>
+      <div class="h-stat-num">6<sup>+</sup></div>
+      <div class="h-stat-label">Teams Served</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-line"></div>
+      <div class="h-stat-num">60<sup>%</sup></div>
+      <div class="h-stat-label">Reporting Reduced</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-wheel"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Power BI</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>DAX &amp; M Query</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Azure Data Factory</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>T-SQL</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Python · Pandas</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>CRM Integration</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Data Compliance</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Tableau</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Star Schema</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>KPI Design</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>ETL Pipelines</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Neo4j</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Power BI</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>DAX &amp; M Query</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Azure Data Factory</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>T-SQL</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Python · Pandas</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>CRM Integration</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Data Compliance</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Tableau</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Star Schema</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>KPI Design</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>ETL Pipelines</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span><span>Neo4j</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section section-alt">
+  <div class="sec-eyebrow">01 · About Me</div>
+  <h2 class="sec-title">The Data<br><span>Architect</span></h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-p">I'm a <strong>BI & Data Engineer</strong> based in New Jersey with 4+ years of experience building the data infrastructure that powers business decisions. My work spans Power BI ecosystems, Azure pipelines, SQL modeling, and cross-tool automation.</p>
+      <p class="about-p">Currently at <strong>ClearBizDebt</strong> (Financial & Insurance) — architecting CRM integrations, data compliance frameworks, and BI reporting systems that unify dialer platforms, CRM data, and Slack into a single source of truth.</p>
+      <p class="about-p">I hold <strong>dual Microsoft certifications</strong> — Azure Data Engineer Associate &amp; Power BI Data Analyst Associate — plus a Master's in Data Science from Pace University, NY.</p>
+      <div class="contact-row">
+        <div class="c-item">
+          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
+          <a href="/cdn-cgi/l/email-protection#e99d809b9d818b81889d9dd0a98e84888085c78a8684"><span class="__cf_email__" data-cfemail="45312c37312d272d2431317c052228242c296b262a28">[email&#160;protected]</span></a>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <span>New Jersey, USA</span>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div>
+          <a href="tel:9178016151">917-801-6151</a>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <a href="https://www.linkedin.com/in/tirthrajbhatt" target="_blank">linkedin.com/in/tirthrajbhatt</a>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+          <a href="https://github.com/tirthmagnus" target="_blank">github.com/tirthmagnus</a>
+        </div>
+      </div>
+    </div>
+    <div class="skill-categories">
+      <div>
+        <div class="skill-cat-label">BI & Analytics</div>
+        <div class="skill-pills">
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#f2c811"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+            Power BI
+          </span>
+          <span class="pill">DAX</span>
+          <span class="pill">M Query</span>
+          <span class="pill">Tabular Editor</span>
+          <span class="pill">Row-Level Security</span>
+          <span class="pill">Incremental Refresh</span>
+          <span class="pill">Direct Query</span>
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#e97627" d="M3 3h18v18H3z"/><path fill="#fff" d="M6 17l3-6 3 4 2-2 4 4H6z"/></svg>
+            Tableau
+          </span>
+          <span class="pill">KPI Design</span>
+          <span class="pill">Data Storytelling</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">Database & SQL</div>
+        <div class="skill-pills">
+          <span class="pill">T-SQL</span>
+          <span class="pill">Window Functions</span>
+          <span class="pill">Stored Procedures</span>
+          <span class="pill">Star Schema</span>
+          <span class="pill">Query Optimization</span>
+          <span class="pill">Dimensional Modeling</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">Cloud & ETL</div>
+        <div class="skill-pills">
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#0089d6" d="M7.5 5.6L5 7l1.5 2.6L5 12l2.5 1.4L7.5 16l2.8-.9 2.3 1.9 2.3-1.9 2.8.9.5-2.6L21 12l-1.5-2.4L21 7l-2.5-1.4L17.9 3 15.1 3.9 12.8 2l-2.3 1.9L7.7 3z"/></svg>
+            Azure Data Factory
+          </span>
+          <span class="pill">Power BI Service</span>
+          <span class="pill">Deployment Pipelines</span>
+          <span class="pill">CRM Integration</span>
+          <span class="pill">Data Compliance</span>
+          <span class="pill">Slack API</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat-label">Programming & Dev</div>
+        <div class="skill-pills">
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#3776ab" d="M11.9 2C9 2 9.2 3.2 9.2 3.2l0 2.1h2.8v.6H6.6S4 5.7 4 8.6c0 2.9 1.6 2.8 1.6 2.8h1.6v-1.4s-.1-1.6 1.6-1.6h2.7s1.5 0 1.5-1.5V3.6S13.2 2 11.9 2zM10.3 3.5c.3 0 .5.2.5.5s-.2.5-.5.5-.5-.2-.5-.5.2-.5.5-.5zm.8 10C8 13.5 8.2 14.8 8.2 14.8l0 2.1h2.8v.6H5.6S3 17.2 3 20.1c0 2.9 1.6 2.8 1.6 2.8h1.6V21.5s-.1-1.6 1.6-1.6h2.7s1.5 0 1.5-1.5v-3.3s.2-1.6-1.5-1.6h-.2zm-1.6 1.5c.3 0 .5.2.5.5s-.2.5-.5.5-.5-.2-.5-.5.2-.5.5-.5z"/></svg>
+            Python
+          </span>
+          <span class="pill">Pandas</span>
+          <span class="pill">NumPy</span>
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#f05032" d="M12 2L2 7l1.5 9.5L12 22l8.5-5.5L22 7z"/></svg>
+            Git
+          </span>
+          <span class="pill">Azure DevOps</span>
+          <span class="pill">CI/CD</span>
+          <span class="pill">SharePoint Online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK LOGOS -->
+<section id="tech" class="section">
+  <div class="sec-eyebrow">02 · Tech Stack</div>
+  <h2 class="sec-title">Tools I <span>Master</span></h2>
+  <div class="tech-grid">
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="42" height="42" rx="6" fill="#f2c811"/>
+        <rect x="53" y="5" width="42" height="42" rx="6" fill="#f2c811"/>
+        <rect x="5" y="53" width="42" height="42" rx="6" fill="#f2c811"/>
+        <rect x="53" y="53" width="42" height="42" rx="6" fill="#f2c811"/>
+      </svg>
+      <span class="tech-name">Power BI</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#0089d6"/>
+        <text x="50" y="62" font-size="36" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Az</text>
+      </svg>
+      <span class="tech-name">Azure</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#3776ab"/>
+        <text x="50" y="65" font-size="52" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Py</text>
+      </svg>
+      <span class="tech-name">Python</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#cc2927"/>
+        <text x="50" y="65" font-size="30" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">SQL</text>
+      </svg>
+      <span class="tech-name">T-SQL</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#e97627"/>
+        <text x="50" y="65" font-size="28" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">TAB</text>
+      </svg>
+      <span class="tech-name">Tableau</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#150458"/>
+        <text x="50" y="48" font-size="22" text-anchor="middle" fill="#e10070" font-family="Arial" font-weight="bold">pandas</text>
+        <text x="50" y="72" font-size="14" text-anchor="middle" fill="white" font-family="Arial">DataFrame</text>
+      </svg>
+      <span class="tech-name">Pandas</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#f05032"/>
+        <text x="50" y="65" font-size="44" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">⌥</text>
+      </svg>
+      <span class="tech-name">Git</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#217346"/>
+        <text x="50" y="55" font-size="28" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">XLS</text>
+        <rect x="10" y="62" width="80" height="4" fill="rgba(255,255,255,.3)" rx="2"/>
+        <rect x="10" y="70" width="60" height="4" fill="rgba(255,255,255,.2)" rx="2"/>
+      </svg>
+      <span class="tech-name">Excel</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#00758f"/>
+        <text x="50" y="65" font-size="28" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">MySQL</text>
+      </svg>
+      <span class="tech-name">MySQL</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#008cc1"/>
+        <text x="50" y="55" font-size="18" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Azure</text>
+        <text x="50" y="74" font-size="14" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="Arial">DevOps</text>
+      </svg>
+      <span class="tech-name">Azure DevOps</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#4e008e"/>
+        <text x="50" y="55" font-size="16" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">Power</text>
+        <text x="50" y="74" font-size="14" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="Arial">Query</text>
+      </svg>
+      <span class="tech-name">Power Query</span>
+    </div>
+
+    <div class="tech-item">
+      <svg class="tech-svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="12" fill="#018bff"/>
+        <circle cx="50" cy="36" r="18" fill="white"/>
+        <circle cx="50" cy="36" r="10" fill="#018bff"/>
+        <rect x="20" y="60" width="60" height="8" rx="4" fill="white"/>
+        <rect x="28" y="74" width="44" height="6" rx="3" fill="rgba(255,255,255,.6)"/>
+      </svg>
+      <span class="tech-name">Neo4j</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" class="section">
+  <div class="sec-eyebrow">03 · Career Timeline</div>
+  <h2 class="sec-title">Where I've<br><span>Built Things</span></h2>
+  <div class="timeline-outer">
+    <div class="tl-line" id="tlLine"></div>
+    <div class="tl-entries">
+
+      <!-- ClearBizDebt -->
+      <div class="tl-entry current" data-delay="0">
+        <div class="tl-dot"></div>
+        <div class="tl-date-badge">
+          <span>Jan 2026 — Present</span>
+          <span class="tl-badge-pill live">● Live</span>
+        </div>
+        <div class="tl-company">ClearBizDebt</div>
+        <div class="tl-role">Data & BI Engineer</div>
+        <div class="tl-domain">Financial & Insurance · New Jersey, USA</div>
+        <div class="impact-chips">
+          <div class="impact-chip"><div class="ic-val">CRM</div><div class="ic-lbl">Integration</div></div>
+          <div class="impact-chip"><div class="ic-val">BI</div><div class="ic-lbl">Reporting</div></div>
+          <div class="impact-chip"><div class="ic-val">✓</div><div class="ic-lbl">Compliance</div></div>
+          <div class="impact-chip"><div class="ic-val">3</div><div class="ic-lbl">Systems Unified</div></div>
+        </div>
+        <div class="tl-card">
+          <ul class="tl-bullets">
+            <li>Architecting end-to-end CRM integration pipelines connecting dialer systems, CRM platforms, and Slack into a unified real-time data flow across the debt resolution lifecycle.</li>
+            <li>Designing compliance-ready BI reporting infrastructure for financial & insurance audiences — delivering dashboards that satisfy both executive and regulatory requirements.</li>
+            <li>Engineering data compliance frameworks with full audit trails, quality checks, and validation workflows aligned to financial regulations.</li>
+            <li>Building automated pipelines that bridge communication tools (dialer, Slack) with CRM data for performance analytics and campaign reporting at scale.</li>
+            <li>Acting as the cross-functional data layer between operations, compliance, and technology teams.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-pill">Power BI</span><span class="tl-pill">SQL</span><span class="tl-pill">CRM APIs</span><span class="tl-pill">Slack API</span><span class="tl-pill">Python</span><span class="tl-pill">Data Compliance</span><span class="tl-pill">ETL</span><span class="tl-pill">Financial Domain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISR -->
+      <div class="tl-entry" data-delay="100">
+        <div class="tl-dot"></div>
+        <div class="tl-date-badge">
+          <span>Aug 2024 — Dec 2025</span>
+          <span class="tl-badge-pill">Past</span>
+        </div>
+        <div class="tl-company">ISR Info Way</div>
+        <div class="tl-role">BI & Data Engineer</div>
+        <div class="tl-domain">New Jersey, USA</div>
+        <div class="impact-chips">
+          <div class="impact-chip"><div class="ic-val">40%</div><div class="ic-lbl">Less Ad-hoc</div></div>
+          <div class="impact-chip"><div class="ic-val">30%</div><div class="ic-lbl">Manual Effort ↓</div></div>
+          <div class="impact-chip"><div class="ic-val">18%</div><div class="ic-lbl">Faster Loads</div></div>
+        </div>
+        <div class="tl-card">
+          <ul class="tl-bullets">
+            <li>Designed and deployed Power BI dashboards for equipment utilization, maintenance, and cost analysis — reducing ad-hoc reporting 40% and uncovering operational inefficiencies across asset categories.</li>
+            <li>Spearheaded SQL-based data models and automated refresh logic, cutting manual prep effort by 30%.</li>
+            <li>Optimized Power BI performance through query tuning, schema restructuring, and incremental refresh — reducing dashboard load time 18% and standardizing KPIs across 6+ teams.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-pill">Power BI</span><span class="tl-pill">DAX</span><span class="tl-pill">T-SQL</span><span class="tl-pill">Incremental Refresh</span><span class="tl-pill">Azure</span><span class="tl-pill">KPI Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vee Ventures -->
+      <div class="tl-entry" data-delay="200">
+        <div class="tl-dot"></div>
+        <div class="tl-date-badge">
+          <span>Jul 2023 — Dec 2023</span>
+          <span class="tl-badge-pill">Co-op</span>
+        </div>
+        <div class="tl-company">Vee Ventures</div>
+        <div class="tl-role">BI Engineer Co-op</div>
+        <div class="tl-domain">New York, USA · Healthcare</div>
+        <div class="impact-chips">
+          <div class="impact-chip"><div class="ic-val">15%</div><div class="ic-lbl">Review Speed ↑</div></div>
+          <div class="impact-chip"><div class="ic-val">35%</div><div class="ic-lbl">Validation Time ↓</div></div>
+          <div class="impact-chip"><div class="ic-val">22%</div><div class="ic-lbl">Accessibility ↑</div></div>
+        </div>
+        <div class="tl-card">
+          <ul class="tl-bullets">
+            <li>Built healthcare dashboards in Power BI and Tableau using Direct Query with automated refresh cycles, improving executive review efficiency by 15%.</li>
+            <li>Designed Excel PivotTable + Power Query reporting views for clinical and finance teams, improving accessibility by 22%.</li>
+            <li>Created Excel-based QA checks for schema drift, null trends, and aggregate mismatches — reducing validation time by 35%.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-pill">Power BI</span><span class="tl-pill">Tableau</span><span class="tl-pill">Direct Query</span><span class="tl-pill">Power Query</span><span class="tl-pill">Excel QA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Techcronus -->
+      <div class="tl-entry" data-delay="300">
+        <div class="tl-dot"></div>
+        <div class="tl-date-badge">
+          <span>Mar 2022 — Aug 2022</span>
+          <span class="tl-badge-pill">Past</span>
+        </div>
+        <div class="tl-company">Techcronus</div>
+        <div class="tl-role">Senior Data Analyst</div>
+        <div class="tl-domain">Ahmedabad, India</div>
+        <div class="impact-chips">
+          <div class="impact-chip"><div class="ic-val">10h+</div><div class="ic-lbl">Saved/Month</div></div>
+          <div class="impact-chip"><div class="ic-val">$138K</div><div class="ic-lbl">Fraud Prevented</div></div>
+          <div class="impact-chip"><div class="ic-val">1,500+</div><div class="ic-lbl">Transactions Flagged</div></div>
+        </div>
+        <div class="tl-card">
+          <ul class="tl-bullets">
+            <li>Delivered automated Power BI P&amp;L and revenue dashboards, cutting monthly reporting time by 10+ hours.</li>
+            <li>Optimized dashboard performance through SQL query tuning and data model rebuilds, reducing latency by 20%.</li>
+            <li>Built fraud-risk analysis report flagging 1,500+ suspicious transactions — directly preventing ~$138K in annual losses.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-pill">Power BI</span><span class="tl-pill">SQL Tuning</span><span class="tl-pill">P&L Reporting</span><span class="tl-pill">Fraud Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cognixia -->
+      <div class="tl-entry" data-delay="400">
+        <div class="tl-dot"></div>
+        <div class="tl-date-badge">
+          <span>Jun 2019 — Jul 2021</span>
+          <span class="tl-badge-pill">Past</span>
+        </div>
+        <div class="tl-company">Cognixia</div>
+        <div class="tl-role">Data Analyst</div>
+        <div class="tl-domain">Vadodara, India</div>
+        <div class="tl-card">
+          <ul class="tl-bullets">
+            <li>Developed Excel dashboards with PivotTables, slicers, and KPIs — reducing weekly reporting by 6+ hours.</li>
+            <li>Engineered data quality processes for 20M+ row datasets using Power Query and Power BI, ensuring cross-functional data integrity.</li>
+            <li>Built sales and margin dashboards improving reporting accuracy by 20%.</li>
+          </ul>
+          <div class="tl-stack">
+            <span class="tl-pill">Power BI</span><span class="tl-pill">Power Query</span><span class="tl-pill">Excel</span><span class="tl-pill">20M+ Rows</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section-alt">
+  <div class="sec-eyebrow">04 · GitHub Projects</div>
+  <h2 class="sec-title">Things I've <span>Shipped</span></h2>
+  <div class="projects-grid">
+
+    <div class="proj-card" data-delay="0"><a class="card-overlay-link" href="#" onclick="openModal('modal-weather');return false;" aria-label="View Project"></a>
+      <div class="proj-num">01</div>
+      <div class="proj-icon-wrap" style="background:rgba(0,137,214,.12);border-color:rgba(0,137,214,.25)">☁️</div>
+      <div class="proj-title">Weatherstack Azure ETL</div>
+      <div class="proj-desc">API-to-cloud data pipeline: live weather data → Azure Blob Storage → Power BI dashboard. Fully orchestrated with Azure Data Factory.</div>
+      <div class="proj-tech-row"><span class="pt">Python</span><span class="pt">Azure Data Factory</span><span class="pt">Azure Blob</span><span class="pt">Power BI</span></div>
+      <a href="https://github.com/tirthmagnus/ai-weather-etl" target="_blank" class="proj-link">View Details →</a>
+    </div>
+    <div class="proj-card" data-delay="100"><a class="card-overlay-link" href="#" onclick="openModal('modal-retail');return false;" aria-label="View Project"></a>
+      <div class="proj-num">02</div>
+      <div class="proj-icon-wrap" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)">🏪</div>
+      <div class="proj-title">RetailPulse 360</div>
+      <div class="proj-desc">Enterprise retail intelligence on Medallion architecture (Bronze→Silver→Gold). XGBoost churn, Prophet forecasting, SVD recommendations, Streamlit BI dashboard.</div>
+      <div class="proj-tech-row"><span class="pt">Python</span><span class="pt">XGBoost</span><span class="pt">Prophet</span><span class="pt">Streamlit</span><span class="pt">SQL</span></div>
+      <a href="https://github.com/tirthmagnus/retailpulse-360" target="_blank" class="proj-link">View Details →</a>
+    </div>
+
+    <div class="proj-card" data-delay="200"><a class="card-overlay-link" href="#" onclick="openModal('modal-inventory');return false;" aria-label="View Project"></a>
+      <div class="proj-num">03</div>
+      <div class="proj-icon-wrap" style="background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.2)">📦</div>
+      <div class="proj-title">Inventory Forecasting</div>
+      <div class="proj-desc">ML-powered demand forecasting system using time-series models to predict stock needs, prevent stockouts, and reduce overstock.</div>
+      <div class="proj-tech-row"><span class="pt">Python</span><span class="pt">Pandas</span><span class="pt">Time-Series</span><span class="pt">Jupyter</span></div>
+      <a href="https://github.com/tirthmagnus/Inventory-Forecasting-" target="_blank" class="proj-link">View Details →</a>
+    </div>
+    <div class="proj-card" data-delay="50"><a class="card-overlay-link" href="#" onclick="openModal('modal-neo4j');return false;" aria-label="View Project"></a>
+      <div class="proj-num">04</div>
+      <div class="proj-icon-wrap" style="background:rgba(255,80,80,.08);border-color:rgba(255,80,80,.2)">🕸️</div>
+      <div class="proj-title">Neo4j Fraud Detection</div>
+      <div class="proj-desc">Graph-based fraud engine mapping transaction networks with Neo4j and Cypher. Inspired by real work that flagged 1,500+ transactions & prevented $138K in losses.</div>
+      <div class="proj-tech-row"><span class="pt">Neo4j</span><span class="pt">Cypher</span><span class="pt">Python</span><span class="pt">Graph Analytics</span></div>
+      <a href="https://github.com/tirthmagnus/neo4j-fraud-detection" target="_blank" class="proj-link">View Details →</a>
+    </div>
+
+    <div class="proj-card" data-delay="150"><a class="card-overlay-link" href="#" onclick="openModal('modal-datacheckr');return false;" aria-label="View Project"></a>
+      <div class="proj-num">05</div>
+      <div class="proj-icon-wrap" style="background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)">🔍</div>
+      <div class="proj-title">Datacheckr</div>
+      <div class="proj-desc">Custom Python package for automated schema drift detection, null trend analysis, and aggregate mismatch checks — plugs into any ETL pipeline.</div>
+      <div class="proj-tech-row"><span class="pt">Python</span><span class="pt">Pandas</span><span class="pt">NumPy</span><span class="pt">Data Quality</span></div>
+      <a href="https://github.com/tirthmagnus/datacheckr" target="_blank" class="proj-link">View Details →</a>
+    </div>
+    <div class="proj-card" data-delay="250"><a class="card-overlay-link" href="#" onclick="openModal('modal-ipl');return false;" aria-label="View Project"></a>
+      <div class="proj-num">06</div>
+      <div class="proj-icon-wrap" style="background:rgba(242,200,17,.08);border-color:rgba(242,200,17,.2)">🏏</div>
+      <div class="proj-title">IPL Power BI Dashboard</div>
+      <div class="proj-desc">Full-stack Power BI cricket analytics — advanced DAX measures, optimized semantic models, and performance-tuned visuals from raw data to story.</div>
+      <div class="proj-tech-row"><span class="pt">Power BI</span><span class="pt">DAX</span><span class="pt">SQL</span><span class="pt">Data Modeling</span></div>
+      <a href="https://github.com/tirthmagnus/ipl-powerbi-dashboard" target="_blank" class="proj-link">View Details →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section">
+  <div class="sec-eyebrow">05 · Certifications</div>
+  <h2 class="sec-title">Microsoft <span>Certified</span></h2>
+  <div class="certs-row">
+
+    <a class="cert-card" href="#" target="_blank">
+      <!-- Microsoft Azure Logo -->
+      <div class="cert-logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="az1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0089d6"/>
+              <stop offset="100%" stop-color="#0050a0"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="16" fill="url(#az1)"/>
+          <text x="50" y="56" font-size="38" text-anchor="middle" fill="white" font-family="Segoe UI,Arial" font-weight="700">Az</text>
+          <rect x="15" y="68" width="70" height="3" rx="2" fill="rgba(255,255,255,.4)"/>
+          <rect x="25" y="76" width="50" height="2" rx="1" fill="rgba(255,255,255,.2)"/>
+        </svg>
+      </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Microsoft Certified</div>
+        <div class="cert-name">Azure Data Engineer Associate</div>
+        <div class="cert-desc">Validates expertise in designing and implementing data storage, processing, and security on Microsoft Azure — including Azure Data Factory, Synapse, and Data Lake.</div>
+        <div class="cert-tech-pills">
+          <span class="ctp">Azure Data Factory</span>
+          <span class="ctp">Synapse</span>
+          <span class="ctp">Data Lake</span>
+          <span class="ctp">Azure SQL</span>
+        </div>
+        <div class="cert-view">View Credential →</div>
+      </div>
+    </a>
+
+    <a class="cert-card" href="#" target="_blank">
+      <!-- Power BI Logo -->
+      <div class="cert-logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pbi1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f2c811"/>
+              <stop offset="100%" stop-color="#e8a700"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="16" fill="url(#pbi1)"/>
+          <rect x="20" y="55" width="14" height="28" rx="3" fill="#333"/>
+          <rect x="38" y="38" width="14" height="45" rx="3" fill="#333"/>
+          <rect x="56" y="25" width="14" height="58" rx="3" fill="#333"/>
+          <rect x="74" y="42" width="8" height="41" rx="3" fill="#555"/>
+        </svg>
+      </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Microsoft Certified</div>
+        <div class="cert-name">Power BI Data Analyst Associate</div>
+        <div class="cert-desc">Validates proficiency in designing and building scalable data models, cleaning and transforming data, and enabling advanced analytic capabilities using Power BI.</div>
+        <div class="cert-tech-pills">
+          <span class="ctp">Power BI</span>
+          <span class="ctp">DAX</span>
+          <span class="ctp">M Query</span>
+          <span class="ctp">Data Modeling</span>
+        </div>
+        <div class="cert-view">View Credential →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section section-alt">
+  <div class="sec-eyebrow">06 · Education</div>
+  <h2 class="sec-title">Academic <span>Roots</span></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div class="edu-uni">Pace University</div>
+      <div class="edu-deg">Master's in Data Science</div>
+      <div class="edu-meta">2022 – 2024 · New York, USA</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5"><path d="M3 22V9M21 22V9M1 9l11-7 11 7H1z"/><rect x="9" y="14" width="6" height="8"/><path d="M5 9v1M19 9v1"/></svg>
+      </div>
+      <div class="edu-uni">Pacific University</div>
+      <div class="edu-deg">Bachelor's in Information Technology</div>
+      <div class="edu-meta">2015 – 2019 · Udaipur, India</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECT MODALS
+═══════════════════════════════════════ -->
+
+<!-- MODAL 1: Weatherstack Azure ETL -->
+<div class="proj-modal-overlay" id="modal-weather" onclick="if(event.target===this)closeModal('modal-weather')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-weather')">✕</button>
+      <div class="pm-eyebrow">01 · Azure Data Engineering · ETL Pipeline</div>
+      <h3 class="pm-title">Weatherstack Azure ETL</h3>
+      <p class="pm-desc">A production-grade, cloud-native ETL pipeline that ingests live weather data via the Weatherstack API, stages it in Azure Blob Storage, orchestrates transformation through Azure Data Factory, and surfaces real-time KPIs in a Power BI semantic model. Designed for extensibility — swap the data source and the pipeline scales without modification. Demonstrates Azure-native architecture patterns applicable to financial market data feeds, insurance risk scoring, and IoT sensor ingestion.</p>
+      <div class="pm-tags"><span class="pm-tag">Python</span><span class="pm-tag">Azure Data Factory</span><span class="pm-tag">Azure Blob Storage</span><span class="pm-tag">Power BI</span><span class="pm-tag">REST API Ingestion</span><span class="pm-tag">Cloud ETL</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node highlight">
+            <span class="arch-node-icon">🌐</span>
+            <div class="arch-node-label">Weatherstack<br>API</div>
+            <div class="arch-node-sub">REST / JSON</div>
+          </div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">HTTP Pull<br>Scheduled</div></div>
+          <div class="arch-node highlight">
+            <span class="arch-node-icon">🐍</span>
+            <div class="arch-node-label">Python<br>Ingestor</div>
+            <div class="arch-node-sub">requests · json</div>
+          </div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">Raw JSON<br>Upload</div></div>
+          <div class="arch-node cloud">
+            <span class="arch-node-icon">☁</span>
+            <div class="arch-node-label">Azure Blob<br>Storage</div>
+            <div class="arch-node-sub">Raw Layer</div>
+          </div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">ADF Trigger<br>Pipeline</div></div>
+          <div class="arch-node cloud">
+            <span class="arch-node-icon">⚙</span>
+            <div class="arch-node-label">Azure Data<br>Factory</div>
+            <div class="arch-node-sub">Transform · Load</div>
+          </div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">Structured<br>Dataset</div></div>
+          <div class="arch-node bi">
+            <span class="arch-node-icon">▦</span>
+            <div class="arch-node-label">Power BI<br>Dashboard</div>
+            <div class="arch-node-sub">Live KPIs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — ADF-Triggered Blob Ingestion</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Python · ingestor.py</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-kw">import</span> requests, json, os
+<span class="tok-kw">from</span> azure.storage.blob <span class="tok-kw">import</span> <span class="tok-cl">BlobServiceClient</span>
+<span class="tok-kw">from</span> datetime <span class="tok-kw">import</span> datetime
+
+<span class="tok-kw">def</span> <span class="tok-fn">ingest_weather</span>(api_key: str, city: str, conn_str: str) -> <span class="tok-cl">dict</span>:
+    <span class="tok-cm"># Pull live weather data from Weatherstack API</span>
+    resp = requests.<span class="tok-fn">get</span>(<span class="tok-str">f"http://api.weatherstack.com/current"</span>,
+        params={<span class="tok-str">"access_key"</span>: api_key, <span class="tok-str">"query"</span>: city})
+    payload = resp.<span class="tok-fn">json</span>()
+
+    <span class="tok-cm"># Stage raw JSON to Azure Blob — immutable audit trail</span>
+    blob_name = <span class="tok-str">f"raw/weather_{city}_{datetime.utcnow():%Y%m%d_%H%M%S}.json"</span>
+    client = <span class="tok-cl">BlobServiceClient</span>.<span class="tok-fn">from_connection_string</span>(conn_str)
+    client.<span class="tok-fn">get_blob_client</span>(container=<span class="tok-str">"weather-raw"</span>, blob=blob_name)           .<span class="tok-fn">upload_blob</span>(json.<span class="tok-fn">dumps</span>(payload), overwrite=<span class="tok-num">True</span>)
+
+    <span class="tok-kw">return</span> {<span class="tok-str">"status"</span>: <span class="tok-str">"staged"</span>, <span class="tok-str">"blob"</span>: blob_name, <span class="tok-str">"records"</span>: <span class="tok-num">1</span>}</pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Pattern used in <strong>financial market feeds</strong> &amp; <strong>insurance risk data ingestion</strong></div>
+      <a href="https://github.com/tirthmagnus/ai-weather-etl" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: RetailPulse 360 -->
+<div class="proj-modal-overlay" id="modal-retail" onclick="if(event.target===this)closeModal('modal-retail')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-retail')">✕</button>
+      <div class="pm-eyebrow">02 · Medallion Architecture · ML + BI</div>
+      <h3 class="pm-title">RetailPulse 360</h3>
+      <p class="pm-desc">Enterprise-grade retail intelligence platform built on the Medallion Lakehouse pattern (Bronze → Silver → Gold). Raw transactional data is ingested, cleansed, and enriched through three discrete layers before feeding three ML models: XGBoost churn prediction, Facebook Prophet demand forecasting, and SVD-based product recommendation. All insights surface through a Streamlit BI dashboard with live filters. This architecture mirrors what top financial institutions use for customer 360 and risk analytics.</p>
+      <div class="pm-tags"><span class="pm-tag">Medallion Architecture</span><span class="pm-tag">XGBoost</span><span class="pm-tag">Prophet Forecasting</span><span class="pm-tag">SVD Recommender</span><span class="pm-tag">Streamlit</span><span class="pm-tag">Python</span><span class="pm-tag">SQL</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture — Medallion Lakehouse</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="arch-rows">
+          <div class="arch-layer">
+            <div class="arch-layer-label">Ingestion Layer</div>
+            <div class="arch-nodes-row">
+              <div class="arch-node highlight"><span class="arch-node-icon">📥</span><div class="arch-node-label">Raw Source<br>Data</div><div class="arch-node-sub">CSV · DB · API</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node" style="border-color:rgba(180,120,60,.4);background:rgba(180,120,60,.06)"><div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(180,120,60,.9);letter-spacing:.08em;margin-bottom:6px">BRONZE</div><div class="arch-node-label">Layer</div><div class="arch-node-sub">Raw · Immutable</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node" style="border-color:rgba(180,180,180,.4);background:rgba(180,180,180,.05)"><div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(192,192,192,.9);letter-spacing:.08em;margin-bottom:6px">SILVER</div><div class="arch-node-label">Layer</div><div class="arch-node-sub">Cleansed · Typed</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node" style="border-color:rgba(242,200,17,.4);background:rgba(242,200,17,.06)"><div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(242,200,17,.95);letter-spacing:.08em;margin-bottom:6px">GOLD</div><div class="arch-node-label">Layer</div><div class="arch-node-sub">Aggregated · Enriched</div></div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">ML Intelligence Layer</div>
+            <div class="arch-nodes-row">
+              <div class="arch-node ml"><span class="arch-node-icon">⚡</span><div class="arch-node-label">XGBoost</div><div class="arch-node-sub">Churn Score</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow" style="color:rgba(34,197,94,.5)">→</div><div class="arch-arrow-label">scores</div></div>
+              <div class="arch-node ml"><span class="arch-node-icon">📈</span><div class="arch-node-label">Prophet</div><div class="arch-node-sub">Demand Forecast</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow" style="color:rgba(34,197,94,.5)">→</div><div class="arch-arrow-label">forecasts</div></div>
+              <div class="arch-node ml"><span class="arch-node-icon">🎯</span><div class="arch-node-label">SVD Model</div><div class="arch-node-sub">Recommendations</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node bi"><span class="arch-node-icon">📊</span><div class="arch-node-label">Streamlit<br>Dashboard</div><div class="arch-node-sub">Live BI Layer</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — XGBoost Churn Pipeline</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Python · churn_model.py</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-kw">from</span> xgboost <span class="tok-kw">import</span> <span class="tok-cl">XGBClassifier</span>
+<span class="tok-kw">from</span> sklearn.model_selection <span class="tok-kw">import</span> StratifiedKFold, cross_val_score
+<span class="tok-kw">import</span> pandas <span class="tok-kw">as</span> pd
+
+<span class="tok-kw">def</span> <span class="tok-fn">build_churn_model</span>(gold_df: pd.<span class="tok-cl">DataFrame</span>) -> <span class="tok-cl">XGBClassifier</span>:
+    <span class="tok-cm"># Feature set: recency, frequency, monetary + engagement signals</span>
+    features = [<span class="tok-str">"days_since_last_order"</span>, <span class="tok-str">"order_frequency"</span>,
+                <span class="tok-str">"avg_order_value"</span>, <span class="tok-str">"support_tickets"</span>, <span class="tok-str">"promo_response_rate"</span>]
+    X, y = gold_df[features], gold_df[<span class="tok-str">"churned"</span>]
+
+    model = <span class="tok-cl">XGBClassifier</span>(
+        n_estimators=<span class="tok-num">300</span>, max_depth=<span class="tok-num">5</span>, learning_rate=<span class="tok-num">0.05</span>,
+        scale_pos_weight=<span class="tok-num">3</span>,   <span class="tok-cm"># handle class imbalance</span>
+        use_label_encoder=<span class="tok-num">False</span>, eval_metric=<span class="tok-str">"auc"</span>
+    )
+    cv = StratifiedKFold(n_splits=<span class="tok-num">5</span>, shuffle=<span class="tok-num">True</span>, random_state=<span class="tok-num">42</span>)
+    scores = cross_val_score(model, X, y, cv=cv, scoring=<span class="tok-str">"roc_auc"</span>)
+    <span class="tok-fn">print</span>(<span class="tok-str">f"AUC: {scores.mean():.3f} ± {scores.std():.3f}"</span>)
+
+    model.<span class="tok-fn">fit</span>(X, y)
+    <span class="tok-kw">return</span> model</pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Architecture mirrors <strong>Customer 360</strong> &amp; <strong>financial risk analytics</strong> at enterprise scale</div>
+      <a href="https://github.com/tirthmagnus/retailpulse-360" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Inventory Forecasting -->
+<div class="proj-modal-overlay" id="modal-inventory" onclick="if(event.target===this)closeModal('modal-inventory')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-inventory')">✕</button>
+      <div class="pm-eyebrow">03 · Time-Series ML · Demand Planning</div>
+      <h3 class="pm-title">Inventory Forecasting</h3>
+      <p class="pm-desc">ML-powered demand forecasting system that uses Prophet time-series modelling to predict future stock requirements at SKU level. Automatically detects seasonality, holiday effects, and trend shifts — generating confidence interval bands that drive reorder triggers. Directly applicable to insurance claim volume forecasting, financial product demand planning, and operational capacity modelling.</p>
+      <div class="pm-tags"><span class="pm-tag">Prophet</span><span class="pm-tag">Time-Series</span><span class="pm-tag">Python</span><span class="pm-tag">Pandas</span><span class="pm-tag">Demand Planning</span><span class="pm-tag">Confidence Intervals</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture — Forecast Pipeline</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node highlight"><span class="arch-node-icon">📋</span><div class="arch-node-label">Historical<br>Sales Data</div><div class="arch-node-sub">CSV · SQL</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">Clean &amp;<br>Resample</div></div>
+          <div class="arch-node highlight"><span class="arch-node-icon">⚙</span><div class="arch-node-label">Feature<br>Engineering</div><div class="arch-node-sub">Lag · Rolling · HOL</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">Fit<br>Model</div></div>
+          <div class="arch-node ml"><span class="arch-node-icon">📈</span><div class="arch-node-label">Prophet<br>Model</div><div class="arch-node-sub">Trend · Season</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">90-Day<br>Forecast</div></div>
+          <div class="arch-node ml"><span class="arch-node-icon">📊</span><div class="arch-node-label">Forecast +<br>CI Bands</div><div class="arch-node-sub">yhat · lower · upper</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+          <div class="arch-node alert"><span class="arch-node-icon">🔔</span><div class="arch-node-label">Reorder<br>Trigger</div><div class="arch-node-sub">Alert · Report</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — Prophet Forecast with Seasonality</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Python · forecast.py</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-kw">from</span> prophet <span class="tok-kw">import</span> <span class="tok-cl">Prophet</span>
+<span class="tok-kw">import</span> pandas <span class="tok-kw">as</span> pd
+
+<span class="tok-kw">def</span> <span class="tok-fn">forecast_demand</span>(df: pd.<span class="tok-cl">DataFrame</span>, horizon: int = <span class="tok-num">90</span>) -> pd.<span class="tok-cl">DataFrame</span>:
+    <span class="tok-cm"># df must have columns: ds (date), y (demand units)</span>
+    model = <span class="tok-cl">Prophet</span>(
+        yearly_seasonality=<span class="tok-num">True</span>,
+        weekly_seasonality=<span class="tok-num">True</span>,
+        changepoint_prior_scale=<span class="tok-num">0.15</span>,   <span class="tok-cm"># flexibility of trend shifts</span>
+        interval_width=<span class="tok-num">0.95</span>             <span class="tok-cm"># 95% confidence bands</span>
+    )
+    model.<span class="tok-fn">add_country_holidays</span>(country_name=<span class="tok-str">"US"</span>)
+    model.<span class="tok-fn">fit</span>(df)
+
+    future  = model.<span class="tok-fn">make_future_dataframe</span>(periods=horizon)
+    forecast = model.<span class="tok-fn">predict</span>(future)
+
+    <span class="tok-cm"># Flag reorder: when lower CI drops below safety stock threshold</span>
+    forecast[<span class="tok-str">"reorder_alert"</span>] = forecast[<span class="tok-str">"yhat_lower"</span>] &lt; df[<span class="tok-str">"safety_stock"</span>].<span class="tok-fn">mean</span>()
+    <span class="tok-kw">return</span> forecast[[<span class="tok-str">"ds"</span>, <span class="tok-str">"yhat"</span>, <span class="tok-str">"yhat_lower"</span>, <span class="tok-str">"yhat_upper"</span>, <span class="tok-str">"reorder_alert"</span>]]</pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Applicable to <strong>insurance claim volumes</strong> &amp; <strong>financial ops capacity planning</strong></div>
+      <a href="https://github.com/tirthmagnus/Inventory-Forecasting-" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: Neo4j Fraud Detection -->
+<div class="proj-modal-overlay" id="modal-neo4j" onclick="if(event.target===this)closeModal('modal-neo4j')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-neo4j')">✕</button>
+      <div class="pm-eyebrow">04 · Graph Analytics · Financial Fraud Detection</div>
+      <h3 class="pm-title">Neo4j Fraud Detection Engine</h3>
+      <p class="pm-desc">Graph-native fraud detection system that models financial transactions as a network of entities and relationships in Neo4j. Unlike table-based fraud rules, graph traversal exposes multi-hop transaction chains, shared account fingerprints, and ring fraud patterns invisible to SQL. Cypher queries identify suspicious clusters in real time. Directly inspired by production fraud work that flagged 1,500+ suspicious transactions and prevented ~$138K in annual losses — a pattern directly applicable to insurance claims fraud, AML compliance, and payment network integrity.</p>
+      <div class="pm-tags"><span class="pm-tag">Neo4j</span><span class="pm-tag">Cypher Query</span><span class="pm-tag">Graph Analytics</span><span class="pm-tag">Python</span><span class="pm-tag">Fraud Detection</span><span class="pm-tag">AML</span><span class="pm-tag">Financial Compliance</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture — Graph Transaction Network</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:220px;display:block">
+          <!-- Background -->
+          <rect width="720" height="220" fill="#0a0a0a" rx="8"/>
+          <!-- Connection lines -->
+          <line x1="120" y1="110" x2="260" y2="70" stroke="rgba(245,158,11,.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="120" y1="110" x2="260" y2="150" stroke="rgba(245,158,11,.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="260" y1="70" x2="400" y2="110" stroke="rgba(245,158,11,.3)" stroke-width="2"/>
+          <line x1="260" y1="150" x2="400" y2="110" stroke="rgba(245,158,11,.3)" stroke-width="2"/>
+          <line x1="400" y1="110" x2="540" y2="60" stroke="rgba(239,68,68,.4)" stroke-width="2"/>
+          <line x1="400" y1="110" x2="540" y2="110" stroke="rgba(239,68,68,.5)" stroke-width="2.5"/>
+          <line x1="400" y1="110" x2="540" y2="160" stroke="rgba(239,68,68,.4)" stroke-width="2"/>
+          <line x1="540" y1="60" x2="650" y2="90" stroke="rgba(239,68,68,.3)" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="540" y1="160" x2="650" y2="130" stroke="rgba(239,68,68,.3)" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <!-- Source nodes -->
+          <circle cx="120" cy="110" r="28" fill="rgba(245,158,11,.12)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+          <text x="120" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#f59e0b">ACCOUNT</text>
+          <text x="120" y="118" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(245,245,240,.5)">Source</text>
+          <!-- Middle transaction nodes -->
+          <circle cx="260" cy="70" r="22" fill="rgba(96,165,250,.08)" stroke="rgba(96,165,250,.4)" stroke-width="1.5"/>
+          <text x="260" y="66" text-anchor="middle" font-family="monospace" font-size="8" fill="#60a5fa">TXN</text>
+          <text x="260" y="77" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.4)">$4,200</text>
+          <circle cx="260" cy="150" r="22" fill="rgba(96,165,250,.08)" stroke="rgba(96,165,250,.4)" stroke-width="1.5"/>
+          <text x="260" y="146" text-anchor="middle" font-family="monospace" font-size="8" fill="#60a5fa">TXN</text>
+          <text x="260" y="157" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.4)">$890</text>
+          <!-- Hub node — suspicious -->
+          <circle cx="400" cy="110" r="32" fill="rgba(239,68,68,.15)" stroke="rgba(239,68,68,.7)" stroke-width="2"/>
+          <text x="400" y="105" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444" font-weight="bold">HUB</text>
+          <text x="400" y="117" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(239,68,68,.8)">⚠ Flagged</text>
+          <!-- Recipient nodes -->
+          <circle cx="540" cy="60" r="22" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.4)" stroke-width="1.5"/>
+          <text x="540" y="56" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">ACCT</text>
+          <text x="540" y="67" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.4)">Mule?</text>
+          <circle cx="540" cy="110" r="24" fill="rgba(239,68,68,.18)" stroke="rgba(239,68,68,.8)" stroke-width="2"/>
+          <text x="540" y="106" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444" font-weight="bold">ACCT</text>
+          <text x="540" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">RING</text>
+          <circle cx="540" cy="160" r="22" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.4)" stroke-width="1.5"/>
+          <text x="540" y="156" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">ACCT</text>
+          <text x="540" y="167" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.4)">Mule?</text>
+          <!-- Cypher engine box -->
+          <rect x="610" y="75" width="90" height="60" rx="6" fill="rgba(245,158,11,.06)" stroke="rgba(245,158,11,.3)" stroke-width="1"/>
+          <text x="655" y="97" text-anchor="middle" font-family="monospace" font-size="8" fill="#f59e0b">CYPHER</text>
+          <text x="655" y="109" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.5)">Query</text>
+          <text x="655" y="121" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,245,240,.5)">Engine</text>
+          <!-- Labels -->
+          <text x="185" y="63" font-family="monospace" font-size="7" fill="rgba(245,158,11,.6)">SENT_TO</text>
+          <text x="185" y="167" font-family="monospace" font-size="7" fill="rgba(245,158,11,.6)">SENT_TO</text>
+          <text x="460" y="56" font-family="monospace" font-size="7" fill="rgba(239,68,68,.6)">TRANSFERS</text>
+        </svg>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — Cypher Fraud Ring Detection</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Cypher · fraud_ring_detection.cypher</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-cm">// Detect fraud rings: accounts sharing 2+ transaction hubs</span>
+<span class="tok-cm">// within 48h — a pattern invisible to standard SQL joins</span>
+<span class="tok-kw">MATCH</span> (a1:<span class="tok-cl">Account</span>)-[:<span class="tok-fn">SENT_TO</span>]->(hub:<span class="tok-cl">Account</span>)
+      &lt;-[:<span class="tok-fn">SENT_TO</span>]-(a2:<span class="tok-cl">Account</span>)
+<span class="tok-kw">WHERE</span>  a1 &lt;&gt; a2
+  <span class="tok-kw">AND</span>  hub.total_received &gt; <span class="tok-num">50000</span>
+  <span class="tok-kw">AND</span>  hub.account_age_days &lt; <span class="tok-num">30</span>   <span class="tok-cm">// newly opened — red flag</span>
+<span class="tok-kw">WITH</span>   a1, a2, <span class="tok-fn">collect</span>(hub) <span class="tok-kw">AS</span> shared_hubs
+<span class="tok-kw">WHERE</span>  <span class="tok-fn">size</span>(shared_hubs) &gt;= <span class="tok-num">2</span>      <span class="tok-cm">// coordinated routing</span>
+<span class="tok-kw">RETURN</span> a1.account_id, a2.account_id,
+       <span class="tok-fn">size</span>(shared_hubs)        <span class="tok-kw">AS</span> shared_hub_count,
+       <span class="tok-fn">sum</span>([h <span class="tok-kw">IN</span> shared_hubs | h.total_received]) <span class="tok-kw">AS</span> total_exposure
+<span class="tok-kw">ORDER BY</span> total_exposure <span class="tok-kw">DESC</span>
+<span class="tok-kw">LIMIT</span>  <span class="tok-num">50</span></pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Production pattern: flagged <strong>1,500+ transactions</strong> · prevented <strong>~$138K</strong> in losses</div>
+      <a href="https://github.com/tirthmagnus/neo4j-fraud-detection" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: Datacheckr -->
+<div class="proj-modal-overlay" id="modal-datacheckr" onclick="if(event.target===this)closeModal('modal-datacheckr')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-datacheckr')">✕</button>
+      <div class="pm-eyebrow">05 · Data Quality · Python Package · ETL Validation</div>
+      <h3 class="pm-title">Datacheckr</h3>
+      <p class="pm-desc">Production-ready Python data quality package that plugs into any ETL pipeline to catch data issues before they corrupt downstream BI reports or ML models. Automates three critical validation layers: schema drift detection (new/dropped/retyped columns), null trend analysis (rising null rates that signal upstream issues), and aggregate mismatch checks (sum/count deviations that catch silent data truncation). In regulated industries like insurance and financial services, a single bad data load can trigger compliance failures — Datacheckr acts as the quality gate.</p>
+      <div class="pm-tags"><span class="pm-tag">Python Package</span><span class="pm-tag">Schema Drift</span><span class="pm-tag">Data Quality</span><span class="pm-tag">ETL Validation</span><span class="pm-tag">Pandas</span><span class="pm-tag">NumPy</span><span class="pm-tag">Data Compliance</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture — Pipeline Integration</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node highlight"><span class="arch-node-icon">📥</span><div class="arch-node-label">Data<br>Source</div><div class="arch-node-sub">DB · API · File</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+          <div class="arch-node highlight"><span class="arch-node-icon">⚙</span><div class="arch-node-label">Extract<br>Layer</div><div class="arch-node-sub">Raw DataFrame</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+          <div class="arch-node" style="border-color:rgba(0,212,170,.45);background:rgba(0,212,170,.08)"><span class="arch-node-icon">🔬</span><div class="arch-node-label">Datacheckr<br>Gate</div><div class="arch-node-sub">Schema·Null·Agg</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div><div class="arch-arrow-label">Pass</div></div>
+          <div class="arch-node highlight"><span class="arch-node-icon">🔄</span><div class="arch-node-label">Transform<br>Layer</div><div class="arch-node-sub">Clean · Enrich</div></div>
+          <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+          <div class="arch-node bi"><span class="arch-node-icon">▦</span><div class="arch-node-label">Load to<br>Warehouse</div><div class="arch-node-sub">Trusted Data</div></div>
+          
+        </div>
+        <div style="margin-top:16px;padding:10px 16px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:6px;font-family:monospace;font-size:.65rem;color:rgba(239,68,68,.8)">
+          ⚠ FAIL PATH: Schema drift or null spike detected → Pipeline halted → Alert raised → Bad data never reaches warehouse
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — Schema Drift Detection</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Python · datacheckr/schema.py</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-kw">from</span> dataclasses <span class="tok-kw">import</span> dataclass
+<span class="tok-kw">from</span> typing <span class="tok-kw">import</span> <span class="tok-cl">Dict</span>, <span class="tok-cl">List</span>
+<span class="tok-kw">import</span> pandas <span class="tok-kw">as</span> pd
+
+<span class="tok-kw">@dataclass</span>
+<span class="tok-kw">class</span> <span class="tok-cl">SchemaDriftReport</span>:
+    added_cols:   <span class="tok-cl">List</span>[str]
+    dropped_cols: <span class="tok-cl">List</span>[str]
+    type_changes: <span class="tok-cl">Dict</span>[str, tuple]
+    <span class="tok-kw">def</span> <span class="tok-fn">is_clean</span>(self) -> bool:
+        <span class="tok-kw">return not</span> <span class="tok-fn">any</span>([self.added_cols, self.dropped_cols, self.type_changes])
+
+<span class="tok-kw">def</span> <span class="tok-fn">detect_schema_drift</span>(
+    baseline: pd.<span class="tok-cl">DataFrame</span>,
+    incoming: pd.<span class="tok-cl">DataFrame</span>
+) -> <span class="tok-cl">SchemaDriftReport</span>:
+    b_schema = dict(baseline.dtypes)
+    i_schema = dict(incoming.dtypes)
+
+    <span class="tok-kw">return</span> <span class="tok-cl">SchemaDriftReport</span>(
+        added_cols   = [c <span class="tok-kw">for</span> c <span class="tok-kw">in</span> i_schema <span class="tok-kw">if</span> c <span class="tok-kw">not in</span> b_schema],
+        dropped_cols = [c <span class="tok-kw">for</span> c <span class="tok-kw">in</span> b_schema <span class="tok-kw">if</span> c <span class="tok-kw">not in</span> i_schema],
+        type_changes = {
+            c: (str(b_schema[c]), str(i_schema[c]))
+            <span class="tok-kw">for</span> c <span class="tok-kw">in</span> b_schema
+            <span class="tok-kw">if</span> c <span class="tok-kw">in</span> i_schema <span class="tok-kw">and</span> b_schema[c] != i_schema[c]
+        }
+    )</pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Critical in <strong>financial data compliance</strong> — prevents silent data corruption in regulated pipelines</div>
+      <a href="https://github.com/tirthmagnus/datacheckr" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: IPL Power BI Dashboard -->
+<div class="proj-modal-overlay" id="modal-ipl" onclick="if(event.target===this)closeModal('modal-ipl')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-ipl')">✕</button>
+      <div class="pm-eyebrow">06 · Power BI · Semantic Model · DAX Engineering</div>
+      <h3 class="pm-title">IPL Power BI Dashboard</h3>
+      <p class="pm-desc">End-to-end Power BI solution demonstrating enterprise BI engineering depth — not just visualisation. Raw match data is modelled into a star schema, a fully optimised semantic model is built with calculated tables and DAX measures including time intelligence, and Row-Level Security is implemented for role-based access. Performance-tuned with query folding and incremental refresh patterns. This architecture is identical to what financial dashboards, insurance underwriting reports, and executive KPI scorecards require in production.</p>
+      <div class="pm-tags"><span class="pm-tag">Power BI</span><span class="pm-tag">DAX</span><span class="pm-tag">Star Schema</span><span class="pm-tag">Semantic Model</span><span class="pm-tag">Row-Level Security</span><span class="pm-tag">Time Intelligence</span><span class="pm-tag">Query Folding</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture — Full Power BI Stack</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="arch-rows">
+          <div class="arch-layer">
+            <div class="arch-layer-label">Data Layer</div>
+            <div class="arch-nodes-row">
+              <div class="arch-node highlight"><span class="arch-node-icon">🗄</span><div class="arch-node-label">Raw Source<br>CSV / SQL</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node highlight"><span class="arch-node-icon">⚙</span><div class="arch-node-label">Power Query<br>M Transform</div><div class="arch-node-sub">Clean · Type · Shape</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node bi"><svg width="24" height="24" viewBox="0 0 24 24" fill="rgba(242,200,17,.8)" style="margin-bottom:6px"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><div class="arch-node-label">Star Schema<br>Model</div><div class="arch-node-sub">Fact · Dim Tables</div></div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Semantic + Security Layer</div>
+            <div class="arch-nodes-row">
+              <div class="arch-node bi"><span class="arch-node-icon">📐</span><div class="arch-node-label">DAX Measures</div><div class="arch-node-sub">Time Intel · KPIs</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow" style="color:rgba(242,200,17,.5)">→</div></div>
+              <div class="arch-node bi"><span class="arch-node-icon">🔒</span><div class="arch-node-label">Row-Level<br>Security</div><div class="arch-node-sub">Role-Based Access</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow" style="color:rgba(242,200,17,.5)">→</div></div>
+              <div class="arch-node bi"><span class="arch-node-icon">🔄</span><div class="arch-node-label">Incremental<br>Refresh</div><div class="arch-node-sub">Query Folding</div></div>
+              <div class="arch-arrow-wrap"><div class="arch-arrow">→</div></div>
+              <div class="arch-node bi"><span class="arch-node-icon">▦</span><div class="arch-node-label">Published<br>Dashboard</div><div class="arch-node-sub">Power BI Service</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — DAX Time Intelligence Measure</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">DAX · measures.dax</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-cm">-- Rolling 3-match batting average with YoY comparison</span>
+<span class="tok-cm">-- Pattern reused in financial rolling KPIs & insurance loss ratios</span>
+
+<span class="tok-cm">-- Rolling 5-match average runs (window function via RANKX)</span>
+<span class="tok-fn">Rolling_5_Avg_Runs</span> <span class="tok-op">=</span>
+<span class="tok-kw">VAR</span> CurrentMatchRank <span class="tok-op">=</span>
+    <span class="tok-kw">RANKX</span>( <span class="tok-kw">ALL</span>(Matches[MatchID]), Matches[MatchDate],, <span class="tok-kw">ASC</span> )
+<span class="tok-kw">RETURN</span>
+<span class="tok-kw">AVERAGEX</span>(
+    <span class="tok-kw">FILTER</span>(
+        <span class="tok-kw">ALL</span>(Matches),
+        <span class="tok-kw">RANKX</span>( <span class="tok-kw">ALL</span>(Matches[MatchID]), Matches[MatchDate],, <span class="tok-kw">ASC</span> )
+            &gt;= CurrentMatchRank <span class="tok-op">-</span> <span class="tok-num">4</span>
+        <span class="tok-op">&amp;&amp;</span>
+        <span class="tok-kw">RANKX</span>( <span class="tok-kw">ALL</span>(Matches[MatchID]), Matches[MatchDate],, <span class="tok-kw">ASC</span> )
+            &lt;= CurrentMatchRank
+    ),
+    [Total_Runs]
+)
+
+<span class="tok-cm">-- Season-over-Season growth using SAMEPERIODLASTYEAR</span>
+<span class="tok-fn">Runs_SoS_Growth_%</span> <span class="tok-op">=</span>
+<span class="tok-kw">VAR</span> CurrentSeason <span class="tok-op">=</span> [Total_Runs]
+<span class="tok-kw">VAR</span> PriorSeason   <span class="tok-op">=</span>
+    <span class="tok-kw">CALCULATE</span>(
+        [Total_Runs],
+        <span class="tok-kw">SAMEPERIODLASTYEAR</span>( Dates[Date] )
+    )
+<span class="tok-kw">RETURN</span>
+    <span class="tok-kw">IF</span>(
+        <span class="tok-kw">ISBLANK</span>(PriorSeason) <span class="tok-op">||</span> PriorSeason <span class="tok-op">=</span> <span class="tok-num">0</span>,
+        <span class="tok-kw">BLANK</span>(),
+        <span class="tok-kw">DIVIDE</span>( CurrentSeason <span class="tok-op">-</span> PriorSeason, PriorSeason )
+    )</pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Same pattern powers <strong>financial KPI scorecards</strong> &amp; <strong>insurance loss ratio dashboards</strong> in production</div>
+      <a href="https://github.com/tirthmagnus/ipl-powerbi-dashboard" target="_blank" class="pm-github-btn"><svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">TB<span>.</span></div>
+  <div class="f-links">
+    <a href="/cdn-cgi/l/email-protection#99edf0ebedf1fbf1f8ededa0d9fef4f8f0f5b7faf6f4">Email</a>
+    <a href="https://www.linkedin.com/in/tirthrajbhatt" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tirthmagnus" target="_blank">GitHub</a>
+  </div>
+  <div class="f-copy">© 2026 Tirth Bhatt · GitHub Pages</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══════════════════════
+   CURSOR
+═══════════════════════ */
+const curEl = document.getElementById('cur');
+const dot = document.getElementById('cur-dot');
+const circle = document.getElementById('cur-circle');
+let mx=window.innerWidth/2, my=window.innerHeight/2, cx=mx, cy=my;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  // Snap dot instantly
+  dot.style.left = mx + 'px';
+  dot.style.top  = my + 'px';
+  // Show cursor on first move
+  if (!curEl.classList.contains('active')) curEl.classList.add('active');
+});
+
+// Laggy circle follows with lerp
+(function animCircle() {
+  cx += (mx - cx) * 0.1;
+  cy += (my - cy) * 0.1;
+  circle.style.left = cx + 'px';
+  circle.style.top  = cy + 'px';
+  requestAnimationFrame(animCircle);
+})();
+
+document.querySelectorAll('a,button,.proj-card,.cert-card,.pill,.tech-item,.tl-card,.btn-amber,.btn-ghost,.nav-cta').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+});
+
+/* ═══════════════════════
+   PARTICLES
+═══════════════════════ */
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resizeCanvas(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+for(let i=0;i<70;i++){
+  particles.push({
+    x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.5+.3,
+    o:Math.random()*.4+.05
+  });
+}
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  // draw connections
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.beginPath();
+        ctx.strokeStyle=`rgba(245,158,11,${.04*(1-dist/120)})`;
+        ctx.lineWidth=.5;
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(245,158,11,${p.o})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ═══════════════════════
+   HERO PARALLAX
+═══════════════════════ */
+const heroName=document.querySelector('.hero-name');
+const bgText=document.querySelector('.hero-bg-text');
+const heroSummary=document.querySelector('.hero-summary');
+document.addEventListener('mousemove',e=>{
+  const rx=(e.clientX/innerWidth-.5)*20;
+  const ry=(e.clientY/innerHeight-.5)*20;
+  if(heroName) heroName.style.transform=`translate(${rx*.4}px,${ry*.4}px)`;
+  if(bgText) bgText.style.transform=`translate(${rx*.8}px,${ry*.3}px)`;
+  if(heroSummary) heroSummary.style.transform=`translate(${rx*.15}px,${ry*.15}px)`;
+  // move particles toward cursor
+  particles.forEach(p=>{
+    const dx=e.clientX-p.x, dy=e.clientY-p.y;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<180){p.vx+=dx*.00008;p.vy+=dy*.00008;}
+  });
+});
+
+/* ═══════════════════════
+   HERO STATS LINE REVEAL
+═══════════════════════ */
+setTimeout(()=>{document.querySelectorAll('.hero-stat').forEach((s,i)=>{setTimeout(()=>s.classList.add('visible'),i*200+800);});},300);
+
+/* ═══════════════════════
+   3D TILT ON PROJECT CARDS
+═══════════════════════ */
+document.querySelectorAll('.proj-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(600px) rotateY(${x*12}deg) rotateX(${-y*10}deg) translateZ(10px) translateY(-4px)`;
+    card.style.setProperty('--px',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+    card.style.setProperty('--py',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='perspective(600px) rotateY(0deg) rotateX(0deg) translateZ(0) translateY(0)';
+    card.style.transition='transform .5s ease, box-shadow .3s, border-color .3s';
+    setTimeout(()=>card.style.transition='',500);
+  });
+});
+
+/* ═══════════════════════
+   SCROLL REVEAL — JS-DRIVEN
+   Items visible by default; JS hides then reveals with animation
+═══════════════════════ */
+const revealEls = document.querySelectorAll('.tl-entry,.proj-card,.cert-card,.edu-card,.tech-item');
+// Add hidden class via JS only (so no-JS users always see content)
+revealEls.forEach(el => el.classList.add('js-hidden'));
+
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const delay = parseInt(e.target.dataset.delay || 0);
+      setTimeout(() => {
+        e.target.classList.remove('js-hidden');
+        e.target.classList.add('reveal');
+      }, delay);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.05, rootMargin: '0px 0px -30px 0px'});
+
+revealEls.forEach(el => revealObs.observe(el));
+
+// Hard fallback: force show everything after 1.5s
+setTimeout(() => {
+  revealEls.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.remove('js-hidden');
+      el.classList.add('reveal');
+    }, i * 40);
+  });
+}, 1500);
+
+/* ═══════════════════════
+   TIMELINE — SCROLL-DRIVEN LINE FILL
+   Line grows as user scrolls through the section
+═══════════════════════ */
+const tlSection = document.getElementById('experience');
+const tlLine = document.getElementById('tlLine');
+
+// Remove CSS transition — we control height via scroll
+tlLine.style.transition = 'none';
+tlLine.style.height = '0px';
+
+function updateTimeline() {
+  if (!tlSection) return;
+  const secRect = tlSection.getBoundingClientRect();
+  const secTop  = secRect.top;
+  const secH    = secRect.height;
+  const winH    = window.innerHeight;
+
+  // progress: 0 when section top hits bottom of viewport, 1 when section bottom hits top
+  const progress = Math.min(1, Math.max(0, (winH - secTop) / (secH + winH * 0.3)));
+  tlLine.style.height = (progress * 100) + '%';
+
+  // Reveal entries as line reaches them
+  const entries = document.querySelectorAll('.tl-entry');
+  entries.forEach((entry, i) => {
+    const entryRect = entry.getBoundingClientRect();
+    // Entry triggers when its top is within viewport
+    if (entryRect.top < winH * 0.88) {
+      entry.classList.remove('js-hidden');
+      entry.classList.add('reveal');
+    }
+  });
+
+  // Dot glow: brightest when near viewport center
+  document.querySelectorAll('.tl-dot').forEach(d => {
+    const r   = d.getBoundingClientRect();
+    const cy  = winH / 2;
+    const dist = Math.abs(r.top + r.height / 2 - cy);
+    const glow = Math.max(0, 1 - dist / 240);
+    d.style.boxShadow = `0 0 0 ${3 + glow * 8}px rgba(245,158,11,${0.1 + glow * 0.3}), 0 0 ${glow * 24}px rgba(245,158,11,${glow * 0.5})`;
+  });
+
+  // Parallax: revealed entries drift at different speeds
+  document.querySelectorAll('.tl-entry.reveal').forEach((entry, i) => {
+    const r    = entry.getBoundingClientRect();
+    const mid  = r.top + r.height / 2;
+    const rel  = (mid - winH / 2) / winH;
+    const spd  = i % 2 === 0 ? 18 : 28;
+    entry.style.transform = `translateY(${rel * spd}px)`;
+  });
+}
+
+window.addEventListener('scroll', updateTimeline, {passive: true});
+updateTimeline(); // run once on load
+
+/* ═══════════════════════
+   TECH GRID STAGGER DELAY
+═══════════════════════ */
+document.querySelectorAll('.tech-item').forEach((el,i)=>{el.dataset.delay=i*60;});
+
+/* ═══════════════════════
+   MAGNETIC BUTTONS
+═══════════════════════ */
+document.querySelectorAll('.btn-amber,.btn-ghost,.nav-cta').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)*.25;
+    const y=(e.clientY-r.top-r.height/2)*.25;
+    btn.style.transform=`translate(${x}px,${y}px) translateY(-2px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+</script>
+<script>
+function openModal(id){
+  var o=document.getElementById(id);
+  if(!o)return;
+  o.classList.add('open');
+  document.body.style.overflow='hidden';
+  o.querySelector('.proj-modal').scrollTop=0;
+}
+function closeModal(id){
+  var o=document.getElementById(id);
+  if(!o)return;
+  o.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.proj-modal-overlay.open').forEach(function(m){
+      m.classList.remove('open');
+    });
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
