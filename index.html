@@ -406,6 +406,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:64px;di
   .projects-grid{grid-template-columns:1fr 1fr}
   .tech-grid{grid-template-columns:repeat(4,1fr)}
   .hero-stats{display:none}
+  /* This has to be repeated here, after the unconditional base rule further
+     up the file (grid-template-columns:1fr 1fr with no media guard) — same
+     specificity + later in source meant the base rule always won, so the
+     right grid track stayed reserved even with .tl-right-panel hidden,
+     squeezing all timeline content into a narrow left strip. */
+  .timeline-outer{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   nav{padding:16px 24px}
@@ -446,6 +452,16 @@ body.modal-open #cur-dot { opacity: 0 }
 .pm-title{font-family:var(--font-display);font-size:2.8rem;letter-spacing:.03em;line-height:1;margin-bottom:12px;color:var(--white)}
 .pm-desc{font-size:.95rem;line-height:1.8;color:rgba(245,245,240,.65);max-width:100%;margin-bottom:20px;font-weight:300}
 .pm-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:0}
+
+/* KPI row — big numbers for project modals */
+.pm-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 40px;margin:26px 0}
+.pm-kpi{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:16px 10px;text-align:center}
+.pm-kpi-num{font-family:var(--font-display);font-size:1.9rem;color:var(--amber);line-height:1;letter-spacing:.02em}
+.pm-kpi-lbl{font-family:var(--font-mono);font-size:.56rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;line-height:1.3}
+@media(max-width:768px){
+  .pm-kpi-row{grid-template-columns:repeat(2,1fr);padding:0 20px}
+  .pm-kpi-num{font-size:1.5rem}
+}
 .pm-tag{font-family:var(--font-mono);font-size:.62rem;padding:4px 10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:3px;color:rgba(245,158,11,.85)}
 
 /* Divider */
@@ -1229,8 +1245,8 @@ body.modal-open #cur-dot { opacity: 0 }
       <div class="proj-num">07</div>
       <div class="proj-icon-wrap" style="background:rgba(66,133,244,.1);border-color:rgba(66,133,244,.25)">🗄️</div>
       <div class="proj-title">GCP Lead Data Warehouse</div>
-      <div class="proj-desc">Production medallion-architecture warehouse on BigQuery — 900K+ records, automated Cloud Function ingestion, multi-vendor attribution, and full audit-trail compliance.</div>
-      <div class="proj-tech-row"><span class="pt">BigQuery</span><span class="pt">Cloud Functions</span><span class="pt">GCP</span><span class="pt">Python</span><span class="pt">Apps Script</span></div>
+      <div class="proj-desc">Production medallion-architecture warehouse on BigQuery — 900K+ records, automated Cloud Function ingestion, multi-vendor attribution, DNC/compliance gating, and full audit-trail governance.</div>
+      <div class="proj-tech-row"><span class="pt">BigQuery</span><span class="pt">Cloud Functions</span><span class="pt">GCP</span><span class="pt">Python</span><span class="pt">Data Governance</span></div>
       <a href="#" onclick="openModal('modal-gcpwarehouse');return false;" class="proj-link">View Details →</a>
     </div>
 
@@ -1882,6 +1898,25 @@ body.modal-open #cur-dot { opacity: 0 }
       <h3 class="pm-title">GCP Lead Data Warehouse</h3>
       <p class="pm-desc">A production medallion-architecture data warehouse on BigQuery for a debt-resolution company's lead operations — 900K+ records across a 9-table schema, with automated Cloud Function ingestion, vendor-source attribution, DNC/compliance checks, and a full record-level audit trail. Built and owned end-to-end as the sole data engineer, from GCP project setup through recovery of production incidents (OOM failures, expired partitions, encoding bugs) without data loss.</p>
       <div class="pm-tags"><span class="pm-tag">BigQuery</span><span class="pm-tag">Cloud Functions</span><span class="pm-tag">Google Cloud Storage</span><span class="pm-tag">Google Apps Script</span><span class="pm-tag">Python</span><span class="pm-tag">Data Compliance</span></div>
+    </div>
+
+    <div class="pm-kpi-row">
+      <div class="pm-kpi"><div class="pm-kpi-num">900K+</div><div class="pm-kpi-lbl">Records Warehoused</div></div>
+      <div class="pm-kpi"><div class="pm-kpi-num">70-80K</div><div class="pm-kpi-lbl">Daily Dialer Records Analyzed</div></div>
+      <div class="pm-kpi"><div class="pm-kpi-num">9</div><div class="pm-kpi-lbl">BigQuery Tables</div></div>
+      <div class="pm-kpi"><div class="pm-kpi-num">60K+</div><div class="pm-kpi-lbl">Records Recovered, Zero Loss</div></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Compliance &amp; Governance</div>
+    <div class="pm-diagram" style="margin-bottom:8px">
+      <ul class="tl-bullets">
+        <li>Every ingested file passes a mandatory validation gate (Gate 1) before landing in the warehouse — records missing a valid phone number are quarantined with a reason code rather than silently dropped or corrupting downstream tables.</li>
+        <li>DNC (Do-Not-Call) suppression checks run against every lead, keeping the dialer's call activity aligned with TCPA-driven compliance requirements.</li>
+        <li>Full record-level audit trail (audit_log table) captures every change with a timestamp and before/after value, giving compliance and ops teams a complete change history on demand.</li>
+        <li>Vendor-source attribution is tracked end-to-end so every lead can be traced back to its originating list and vendor — a requirement for both compliance reporting and vendor-performance accounting.</li>
+        <li>PII-safe by design: sensitive fields are hashed/redacted before any raw-row logging, keeping quarantine and audit records safe to hand to compliance or engineering without exposure risk.</li>
+      </ul>
     </div>
     <div class="pm-divider" style="margin:28px 40px"></div>
 
