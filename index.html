@@ -118,6 +118,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .nav-cta:hover{background:var(--amber2);transform:translateY(-1px)}
 
 /* ═══════════════════════════════════════
+   MOBILE NAV — hamburger + slide-in panel
+═══════════════════════════════════════ */
+.nav-burger{display:none;background:none;border:none;width:38px;height:38px;padding:0;position:relative;cursor:pointer;z-index:1100}
+.nav-burger span{position:absolute;left:8px;right:8px;height:2px;background:var(--white);transition:transform .25s ease,opacity .25s ease}
+.nav-burger span:nth-child(1){top:13px}
+.nav-burger span:nth-child(2){top:19px}
+.nav-burger span:nth-child(3){top:25px}
+body.nav-open .nav-burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.nav-open .nav-burger span:nth-child(2){opacity:0}
+body.nav-open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.nav-mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:#0c0c0c;border-left:1px solid var(--border2);z-index:1050;display:flex;flex-direction:column;padding:100px 32px 40px;gap:28px;transform:translateX(100%);transition:transform .35s ease;overflow-y:auto}
+body.nav-open .nav-mobile-panel{transform:translateX(0)}
+.nav-mobile-panel a{font-family:var(--font-mono);font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-mobile-panel a:hover,.nav-mobile-panel a:active{color:var(--amber)}
+.nav-mobile-cta{margin-top:auto;padding:12px 22px;background:var(--amber);color:#000;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;text-align:center;font-family:var(--font-mono)}
+
+.nav-scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1040;opacity:0;transition:opacity .3s ease}
+body.nav-open .nav-scrim{display:block;opacity:1}
+body.nav-open{overflow:hidden}
+
+@media(max-width:768px){
+  .nav-burger{display:block}
+}
+
+/* ═══════════════════════════════════════
    HERO
 ═══════════════════════════════════════ */
 #hero{min-height:100vh;display:flex;align-items:center;padding:140px 64px 80px;position:relative;overflow:hidden}
@@ -525,7 +551,20 @@ body.modal-open #cur-dot { opacity: 0 }
     <li><a href="#certifications">Certs</a></li>
   </ul>
   <a href="https://www.linkedin.com/in/tirthrajbhatt" target="_blank" class="nav-cta">Hire Me</a>
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-scrim" id="navScrim"></div>
+<div class="nav-mobile-panel" id="navMobilePanel">
+  <a href="#about">About</a>
+  <a href="#tech">Stack</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certs</a>
+  <a href="https://www.linkedin.com/in/tirthrajbhatt" target="_blank" class="nav-mobile-cta">Hire Me</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1186,6 +1225,15 @@ body.modal-open #cur-dot { opacity: 0 }
       <a href="#" onclick="openModal('modal-ipl');return false;" class="proj-link">View Details →</a>
     </div>
 
+    <div class="proj-card" data-delay="200"><a class="card-overlay-link" href="#" onclick="openModal('modal-gcpwarehouse');return false;" aria-label="View Project"></a>
+      <div class="proj-num">07</div>
+      <div class="proj-icon-wrap" style="background:rgba(66,133,244,.1);border-color:rgba(66,133,244,.25)">🗄️</div>
+      <div class="proj-title">GCP Lead Data Warehouse</div>
+      <div class="proj-desc">Production medallion-architecture warehouse on BigQuery — 900K+ records, automated Cloud Function ingestion, multi-vendor attribution, and full audit-trail compliance.</div>
+      <div class="proj-tech-row"><span class="pt">BigQuery</span><span class="pt">Cloud Functions</span><span class="pt">GCP</span><span class="pt">Python</span><span class="pt">Apps Script</span></div>
+      <a href="#" onclick="openModal('modal-gcpwarehouse');return false;" class="proj-link">View Details →</a>
+    </div>
+
   </div>
 </section>
 
@@ -1826,6 +1874,88 @@ body.modal-open #cur-dot { opacity: 0 }
   </div>
 </div>
 
+<div class="proj-modal-overlay" id="modal-gcpwarehouse" onclick="if(event.target===this)closeModal('modal-gcpwarehouse')">
+  <div class="proj-modal">
+    <div class="pm-header">
+      <button class="pm-close" onclick="closeModal('modal-gcpwarehouse')">✕</button>
+      <div class="pm-eyebrow">07 · GCP Data Engineering · Lead Warehouse</div>
+      <h3 class="pm-title">GCP Lead Data Warehouse</h3>
+      <p class="pm-desc">A production medallion-architecture data warehouse on BigQuery for a debt-resolution company's lead operations — 900K+ records across a 9-table schema, with automated Cloud Function ingestion, vendor-source attribution, DNC/compliance checks, and a full record-level audit trail. Built and owned end-to-end as the sole data engineer, from GCP project setup through recovery of production incidents (OOM failures, expired partitions, encoding bugs) without data loss.</p>
+      <div class="pm-tags"><span class="pm-tag">BigQuery</span><span class="pm-tag">Cloud Functions</span><span class="pm-tag">Google Cloud Storage</span><span class="pm-tag">Google Apps Script</span><span class="pm-tag">Python</span><span class="pm-tag">Data Compliance</span></div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Architecture</div>
+    <div class="pm-diagram">
+      <div class="arch-diagram">
+        <div class="aan-flow">
+          <div class="aan-node" style="border-color:rgba(66,133,244,.35);background:rgba(66,133,244,.07);">
+            <div class="aan-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2 2 7l10 5 10-5-10-5z"/><path fill="#34A853" d="M2 17l10 5 10-5-10-5-10 5z" opacity=".7"/><path fill="#FBBC05" d="M2 12l10 5 10-5-10-5-10 5z" opacity=".85"/></svg></div>
+            <div class="aan-label">Vendor Lead Files</div>
+            <div class="aan-sub">Gmail attachments</div>
+          </div>
+          <div class="aan-arrow-wrap">
+            <div class="aan-arrow"><svg class="aan-connector" viewBox="0 0 60 14" width="60" height="14"><line x1="0" y1="7" x2="48" y2="7" stroke="rgba(66,133,244,.4)" stroke-width="2"/><polygon points="47,3 58,7 47,11" fill="rgba(66,133,244,.4)"/></svg><div class="aan-data-pill" style="border-color:rgba(66,133,244,.55);color:rgba(120,160,255,.95)">10-min poll</div><div class="aan-shimmer"></div></div>
+          </div>
+          <div class="aan-node" style="border-color:rgba(66,133,244,.35);background:rgba(66,133,244,.07);">
+            <div class="aan-logo"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#4285F4" stroke-width="1.5"/><path d="M7 9h10M7 13h6" stroke="#4285F4" stroke-width="1.5"/></svg></div>
+            <div class="aan-label">Apps Script</div>
+            <div class="aan-sub">Gmail → GCS trigger</div>
+          </div>
+          <div class="aan-arrow-wrap">
+            <div class="aan-arrow"><svg class="aan-connector" viewBox="0 0 60 14" width="60" height="14"><line x1="0" y1="7" x2="48" y2="7" stroke="rgba(245,158,11,.4)" stroke-width="2"/><polygon points="47,3 58,7 47,11" fill="rgba(245,158,11,.4)"/></svg><div class="aan-data-pill" style="border-color:rgba(245,158,11,.55);color:rgba(245,158,11,.95)">raw file</div><div class="aan-shimmer"></div></div>
+          </div>
+          <div class="aan-node" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06);">
+            <div class="aan-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#F4B400" d="M12 2 3 7v10l9 5 9-5V7l-9-5z" opacity=".85"/></svg></div>
+            <div class="aan-label">GCS Bucket</div>
+            <div class="aan-sub">incoming/ staging</div>
+          </div>
+          <div class="aan-arrow-wrap">
+            <div class="aan-arrow"><svg class="aan-connector" viewBox="0 0 60 14" width="60" height="14"><line x1="0" y1="7" x2="48" y2="7" stroke="rgba(52,168,83,.4)" stroke-width="2"/><polygon points="47,3 58,7 47,11" fill="rgba(52,168,83,.4)"/></svg><div class="aan-data-pill" style="border-color:rgba(52,168,83,.55);color:rgba(110,220,150,.95)">validate</div><div class="aan-shimmer"></div></div>
+          </div>
+          <div class="aan-node" style="border-color:rgba(52,168,83,.35);background:rgba(52,168,83,.07);">
+            <div class="aan-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#34A853" d="M12 2 2 12l10 10 10-10L12 2z" opacity=".85"/></svg></div>
+            <div class="aan-label">Cloud Function</div>
+            <div class="aan-sub">Gate 1 · parse · dedupe</div>
+          </div>
+          <div class="aan-arrow-wrap">
+            <div class="aan-arrow"><svg class="aan-connector" viewBox="0 0 60 14" width="60" height="14"><line x1="0" y1="7" x2="48" y2="7" stroke="rgba(66,133,244,.4)" stroke-width="2"/><polygon points="47,3 58,7 47,11" fill="rgba(66,133,244,.4)"/></svg><div class="aan-data-pill" style="border-color:rgba(66,133,244,.55);color:rgba(120,160,255,.95)">bronze rows</div><div class="aan-shimmer"></div></div>
+          </div>
+          <div class="aan-node" style="border-color:rgba(66,133,244,.4);background:rgba(66,133,244,.08);">
+            <div class="aan-logo"><svg width="22" height="22" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3" fill="none" stroke="#4285F4" stroke-width="1.5"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6" fill="none" stroke="#4285F4" stroke-width="1.5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke="#4285F4" stroke-width="1.5"/></svg></div>
+            <div class="aan-label">BigQuery</div>
+            <div class="aan-sub">leads_master · 9 tables</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pm-divider" style="margin:28px 40px"></div>
+
+    <div class="pm-section-label">Key Code — Gate 1 Ingestion Validation</div>
+    <div class="pm-code-wrap">
+      <div class="pm-code-block">
+        <div class="pm-code-header">
+          <div class="pm-code-dots"><div class="pm-code-dot" style="background:#ef4444"></div><div class="pm-code-dot" style="background:#f59e0b"></div><div class="pm-code-dot" style="background:#22c55e"></div></div>
+          <span class="pm-code-lang">Python · main.py</span>
+        </div>
+        <pre class="pm-code-pre"><span class="tok-kw">def</span> <span class="tok-fn">gate_1_validate</span>(row: <span class="tok-cl">dict</span>) -> <span class="tok-cl">tuple</span>:
+    <span class="tok-cm"># phone_1 is the only mandatory field — Bronze stays raw,</span>
+    <span class="tok-cm"># everything else is nullable and gets cleaned in Silver</span>
+    phone = <span class="tok-fn">normalize_phone</span>(row.<span class="tok-fn">get</span>(<span class="tok-str">"phone_1"</span>))
+
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> phone <span class="tok-kw">or</span> <span class="tok-fn">len</span>(phone) != <span class="tok-num">10</span>:
+        <span class="tok-kw">return</span> <span class="tok-str">"QUARANTINE"</span>, <span class="tok-str">"missing_or_invalid_phone"</span>
+
+    row[<span class="tok-str">"phone_1"</span>] = phone
+    <span class="tok-kw">return</span> <span class="tok-str">"BRONZE"</span>, <span class="tok-kw">None</span></pre>
+      </div>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-impact">Recovered <strong>60,000+</strong> leads from production ingestion failures without data loss</div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="f-brand">TB<span>.</span></div>
@@ -1839,13 +1969,25 @@ body.modal-open #cur-dot { opacity: 0 }
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════
+   CAPABILITY GATE
+   Skip all mouse-tracking / heavy motion on touch devices
+   and for users who asked for reduced motion — this is the
+   biggest source of scroll jank on mobile.
+═══════════════════════ */
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fxEnabled = canHover && !reduceMotion;
+
+/* ═══════════════════════
    CURSOR
 ═══════════════════════ */
+if (!fxEnabled) { document.body.classList.add('no-fx'); }
 const curEl = document.getElementById('cur');
 const dot = document.getElementById('cur-dot');
 const circle = document.getElementById('cur-circle');
 let mx=window.innerWidth/2, my=window.innerHeight/2, cx=mx, cy=my;
 
+if (fxEnabled) {
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   // Snap dot instantly
@@ -1855,19 +1997,21 @@ document.addEventListener('mousemove', e => {
   if (!curEl.classList.contains('active')) curEl.classList.add('active');
 });
 
-// Laggy circle follows with lerp
+// Laggy circle follows with lerp — only animate while the tab is visible
+let circleRAF;
 (function animCircle() {
   cx += (mx - cx) * 0.1;
   cy += (my - cy) * 0.1;
   circle.style.left = cx + 'px';
   circle.style.top  = cy + 'px';
-  requestAnimationFrame(animCircle);
+  circleRAF = requestAnimationFrame(animCircle);
 })();
 
 document.querySelectorAll('a,button,.proj-card,.cert-card,.pill,.tech-item,.tl-card,.btn-amber,.btn-ghost,.nav-cta').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
+}
 
 /* ═══════════════════════
    PARTICLES
@@ -1877,7 +2021,8 @@ const ctx=canvas.getContext('2d');
 let W,H,particles=[];
 function resizeCanvas(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;}
 resizeCanvas();window.addEventListener('resize',resizeCanvas);
-for(let i=0;i<70;i++){
+const particleCount = window.innerWidth <= 768 ? 30 : 70;
+for(let i=0;i<particleCount;i++){
   particles.push({
     x:Math.random()*innerWidth,y:Math.random()*innerHeight,
     vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
@@ -1886,6 +2031,8 @@ for(let i=0;i<70;i++){
   });
 }
 function drawParticles(){
+  // Don't burn CPU/battery animating a background canvas on a hidden tab
+  if (document.hidden) { requestAnimationFrame(drawParticles); return; }
   ctx.clearRect(0,0,W,H);
   // draw connections
   for(let i=0;i<particles.length;i++){
@@ -1921,6 +2068,7 @@ drawParticles();
 const heroName=document.querySelector('.hero-name');
 const bgText=document.querySelector('.hero-bg-text');
 const heroSummary=document.querySelector('.hero-summary');
+if (fxEnabled) {
 document.addEventListener('mousemove',e=>{
   const rx=(e.clientX/innerWidth-.5)*20;
   const ry=(e.clientY/innerHeight-.5)*20;
@@ -1934,6 +2082,7 @@ document.addEventListener('mousemove',e=>{
     if(dist<180){p.vx+=dx*.00008;p.vy+=dy*.00008;}
   });
 });
+}
 
 /* ═══════════════════════
    HERO STATS LINE REVEAL
@@ -1943,6 +2092,7 @@ setTimeout(()=>{document.querySelectorAll('.hero-stat').forEach((s,i)=>{setTimeo
 /* ═══════════════════════
    3D TILT ON PROJECT CARDS
 ═══════════════════════ */
+if (fxEnabled) {
 document.querySelectorAll('.proj-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const r=card.getBoundingClientRect();
@@ -1958,6 +2108,7 @@ document.querySelectorAll('.proj-card').forEach(card=>{
     setTimeout(()=>card.style.transition='',500);
   });
 });
+}
 
 /* ═══════════════════════
    SCROLL REVEAL — JS-DRIVEN
@@ -2044,7 +2195,17 @@ function updateTimeline() {
   });
 }
 
-window.addEventListener('scroll', updateTimeline, {passive: true});
+// rAF-throttled: without this, updateTimeline (which does getBoundingClientRect
+// on every entry/dot and writes styles) runs once per raw scroll event — dozens
+// of times per second — forcing layout thrash and visible scroll jank, worst on
+// mobile. One flight in-flight at a time fixes it.
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(() => { updateTimeline(); scrollTicking = false; });
+  }
+}, {passive: true});
 updateTimeline(); // run once on load
 
 /* ═══════════════════════
@@ -2055,6 +2216,7 @@ document.querySelectorAll('.tech-item').forEach((el,i)=>{el.dataset.delay=i*60;}
 /* ═══════════════════════
    MAGNETIC BUTTONS
 ═══════════════════════ */
+if (fxEnabled) {
 document.querySelectorAll('.btn-amber,.btn-ghost,.nav-cta').forEach(btn=>{
   btn.addEventListener('mousemove',e=>{
     const r=btn.getBoundingClientRect();
@@ -2064,6 +2226,7 @@ document.querySelectorAll('.btn-amber,.btn-ghost,.nav-cta').forEach(btn=>{
   });
   btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
 });
+}
 
 /* ═══════════════════════
    HERO NODE NETWORK (center fill)
@@ -2071,6 +2234,10 @@ document.querySelectorAll('.btn-amber,.btn-ghost,.nav-cta').forEach(btn=>{
 (function(){
   const canvas = document.getElementById('hero-net');
   if(!canvas) return;
+  // .hero-stats (the panel this constellation fills) is display:none below
+  // 1024px, so on mobile/tablet this canvas was drawing 55 animated nodes
+  // every frame for nothing. Skip it there entirely.
+  if (window.innerWidth <= 1024 || reduceMotion) return;
   const ctx = canvas.getContext('2d');
   let W, H, nodes = [];
   
@@ -2098,6 +2265,7 @@ document.querySelectorAll('.btn-amber,.btn-ghost,.nav-cta').forEach(btn=>{
   }
   
   function draw(){
+    if (document.hidden) { requestAnimationFrame(draw); return; }
     ctx.clearRect(0,0,W,H);
     const t = performance.now() / 1000;
     
@@ -2164,6 +2332,28 @@ window.openModal = function(id) {
   _origOpenModal(id);
   setTimeout(() => lightUpNodes(id), 200);
 };
+
+/* ═══════════════════════
+   MOBILE NAV TOGGLE
+═══════════════════════ */
+(function(){
+  const burger = document.getElementById('navBurger');
+  const scrim  = document.getElementById('navScrim');
+  const panel  = document.getElementById('navMobilePanel');
+  if(!burger || !panel) return;
+  function closeNav(){
+    document.body.classList.remove('nav-open');
+    burger.setAttribute('aria-expanded','false');
+  }
+  function toggleNav(){
+    const open = document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  burger.addEventListener('click', toggleNav);
+  scrim.addEventListener('click', closeNav);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  window.addEventListener('resize', () => { if(window.innerWidth > 768) closeNav(); });
+})();
 
 /* ═══════════════════════
    SKILL BAR ANIMATION
